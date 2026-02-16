@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Users, FileSignature, Database, Receipt, List, ShoppingCart, AlertCircle, CreditCard, Bell, FileText, MapPin, Bot, BarChart3, LayoutDashboard, Shield, UserPlus, Link } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
+import { DemoFormModal } from "./DemoFormModal";
 
 const AnimatedNumber = ({ value, decimals = 0, prefix = "", suffix = "" }: { value: number; decimals?: number; prefix?: string; suffix?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
@@ -64,7 +65,10 @@ const servicePills = [
 ];
 
 export const HeroSection = () => {
+  const [demoOpen, setDemoOpen] = useState(false);
   return (
+    <>
+    <DemoFormModal open={demoOpen} onOpenChange={setDemoOpen} />
     <section className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24">
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12 xl:gap-16">
@@ -112,15 +116,15 @@ export const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="flex gap-3 md:gap-4 justify-center lg:justify-start flex-wrap mb-10 lg:mb-0"
             >
-              <motion.a
-                href="#cta"
+              <motion.button
+                onClick={() => setDemoOpen(true)}
                 className="btn-premium inline-flex items-center gap-2 text-sm md:text-base px-6 py-3 md:px-8 md:py-4"
                 whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.98 }}
               >
                 Richiedi una Demo
                 <ArrowRight className="w-5 h-5" />
-              </motion.a>
+              </motion.button>
               <motion.a
                 href="#features"
                 className="hidden md:inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-base text-foreground liquid-glass transition-all duration-300"
@@ -184,5 +188,6 @@ export const HeroSection = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
