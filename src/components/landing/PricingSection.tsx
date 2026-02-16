@@ -53,12 +53,6 @@ const plans = [
   }
 ];
 
-const calculator = [
-  { points: "1.500 punti", price: "€1.500" },
-  { points: "5.000 punti", price: "€5.000" },
-  { points: "15.000 punti", price: "€15.000" },
-  { points: "40.000 punti", price: "€40.000" },
-];
 
 export const PricingSection = () => {
   return (
@@ -168,29 +162,6 @@ export const PricingSection = () => {
           ))}
         </div>
 
-        {/* Pricing Calculator */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-12 max-w-4xl mx-auto"
-        >
-          <div className="liquid-glass-card-sm p-5 md:p-8 text-center">
-            <h3 className="text-base md:text-lg font-bold text-foreground mb-2">Calcolo rapido: la piattaforma base</h3>
-            <p className="text-xs md:text-sm text-muted-foreground mb-4 md:mb-6">Solo POD + PDR, esclusi OTP e moduli extra</p>
-            <div className="grid grid-cols-2 md:flex md:justify-center gap-4 md:gap-10 flex-wrap">
-              {calculator.map((item, i) => (
-                <div key={i}>
-                  <div className="text-xs text-muted-foreground uppercase tracking-widest mb-1">{item.points}</div>
-                  <div className="text-xl font-extrabold text-primary">
-                    {item.price}<span className="text-sm font-normal text-muted-foreground">/mese</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
