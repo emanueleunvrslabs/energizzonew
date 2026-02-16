@@ -125,7 +125,7 @@ export const PlatformSection = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5"
+              className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-5 md:overflow-visible md:pb-0 scrollbar-thin"
             >
               {categories[activeTab].modules.map((mod, i) => {
                 const Icon = mod.icon;
@@ -136,7 +136,7 @@ export const PlatformSection = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: i * 0.05 }}
                   >
-                    <div className="liquid-glass-card-sm p-5 md:p-6 h-full group hover:bg-white/[0.06] transition-all duration-300">
+                    <div className="liquid-glass-card-sm p-5 md:p-6 h-full group hover:bg-white/[0.06] transition-all duration-300 min-w-[75vw] sm:min-w-0 snap-center">
                       <div className="flex items-start gap-3 mb-3">
                         <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center shrink-0">
                           <Icon className="w-5 h-5 text-primary" />
