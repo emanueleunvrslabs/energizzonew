@@ -26,11 +26,11 @@ const CellContent = ({ value, isEnergizzo }: { value: CellValue; isEnergizzo?: b
   const iconSize = 16;
 
   if (value.type === "text") {
-    return <span className={isEnergizzo ? "text-primary font-semibold" : ""}>{value.label}</span>;
+    return <span className={`block text-center ${isEnergizzo ? "text-primary font-semibold" : ""}`}>{value.label}</span>;
   }
 
   return (
-    <div className="flex items-center gap-1.5">
+    <div className="flex items-center justify-center gap-1.5">
       <span className="w-5 h-5 flex items-center justify-center flex-shrink-0">
         {value.type === "yes" && (
           <span className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center">
