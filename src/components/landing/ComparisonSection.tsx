@@ -30,7 +30,7 @@ const CellContent = ({ value, isEnergizzo }: { value: CellValue; isEnergizzo?: b
   }
 
   return (
-    <div className="flex items-center justify-center gap-1.5">
+    <div className="flex items-center gap-1.5">
       <span className="w-5 h-5 flex items-center justify-center flex-shrink-0">
         {value.type === "yes" && (
           <span className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center">
@@ -118,16 +118,16 @@ export const ComparisonSection = () => {
                     <td className="text-left p-4 text-sm font-medium text-foreground border-b border-white/[0.06]">
                       {row.feature}
                     </td>
-                    <td className="text-center p-4 text-sm font-semibold text-primary bg-primary/[0.03] border-b border-white/[0.06]">
+                    <td className="p-4 text-sm font-semibold text-primary bg-primary/[0.03] border-b border-white/[0.06]">
                       <CellContent value={row.energizzo} isEnergizzo />
                     </td>
-                    <td className="text-center p-4 text-sm text-muted-foreground border-b border-white/[0.06]">
+                    <td className="p-4 text-sm text-muted-foreground border-b border-white/[0.06]">
                       <CellContent value={row.trilance} />
                     </td>
-                    <td className="text-center p-4 text-sm text-muted-foreground border-b border-white/[0.06]">
+                    <td className="p-4 text-sm text-muted-foreground border-b border-white/[0.06]">
                       <CellContent value={row.ibill} />
                     </td>
-                    <td className="text-center p-4 text-sm text-muted-foreground border-b border-white/[0.06]">
+                    <td className="p-4 text-sm text-muted-foreground border-b border-white/[0.06]">
                       <CellContent value={row.wattsdat} />
                     </td>
                   </tr>
