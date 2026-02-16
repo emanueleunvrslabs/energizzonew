@@ -1,8 +1,13 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { DemoFormModal } from "./DemoFormModal";
 
 export const Footer = () => {
+  const [demoOpen, setDemoOpen] = useState(false);
   return (
+    <>
+    <DemoFormModal open={demoOpen} onOpenChange={setDemoOpen} />
     <>
       {/* CTA Section */}
       <section id="cta" className="py-16 md:py-24 relative overflow-hidden">
@@ -31,15 +36,15 @@ export const Footer = () => {
                   30 minuti di demo. Nessun impegno. Vediamo insieme quanto puoi risparmiare e come Energizzo lavora con i tuoi dati reali.
                 </p>
                 <div className="flex gap-3 md:gap-4 justify-center flex-wrap">
-                  <motion.a
-                    href="mailto:info@energizzo.it"
+                  <motion.button
+                    onClick={() => setDemoOpen(true)}
                     className="btn-premium inline-flex items-center gap-2"
                     whileHover={{ scale: 1.05, y: -3 }}
                     whileTap={{ scale: 0.98 }}
                   >
                     Prenota una Demo
                     <ArrowRight className="w-5 h-5" />
-                  </motion.a>
+                  </motion.button>
                   <motion.a
                     href="#pricing"
                     className="inline-flex items-center gap-2 px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold text-sm md:text-base text-foreground liquid-glass"
@@ -70,6 +75,7 @@ export const Footer = () => {
           </div>
         </div>
       </footer>
+    </>
     </>
   );
 };
