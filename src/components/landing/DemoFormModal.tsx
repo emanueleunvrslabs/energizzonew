@@ -35,10 +35,16 @@ const DemoFormContent = ({ onClose }: { onClose: () => void }) => {
       const { data, error } = await supabase.functions.invoke('send-telegram', {
         body: { name, company, email, whatsapp },
       });
-      if (error) throw error;
+      console.log('Telegram response:', { data, error });
+      if (error) {
+        console.error('Telegram error details:', error);
+        throw error;
+      }
       setSubmitted(true);
-    } catch {
-      toast({ title: "Errore nell'invio, riprova", variant: "destructive" });
+    } catch (err) {
+      console.error('Full error:', err);
+      const errorMsg = err instanceof Error ? err.message : JSON.stringify(err);
+      toast({ title: `Errore: ${errorMsg}`, variant: "destructive" });
     } finally {
       setLoading(false);
     }
