@@ -46,7 +46,14 @@ export const ComparisonSection = () => {
           className="max-w-5xl mx-auto overflow-x-auto"
         >
           <div className="liquid-glass-card overflow-hidden">
-            <table className="w-full border-collapse">
+            <table className="w-full border-collapse table-fixed">
+              <colgroup>
+                <col className="w-[30%]" />
+                <col className="w-[17.5%]" />
+                <col className="w-[17.5%]" />
+                <col className="w-[17.5%]" />
+                <col className="w-[17.5%]" />
+              </colgroup>
               <thead>
                 <tr>
                   <th className="text-left p-4 text-sm font-semibold text-muted-foreground border-b border-white/10">
