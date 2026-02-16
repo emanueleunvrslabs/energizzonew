@@ -1,3 +1,4 @@
+import "https://deno.land/x/xhr@0.1.0/mod.ts";
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
 const corsHeaders = {
@@ -6,7 +7,6 @@ const corsHeaders = {
 };
 
 serve(async (req) => {
-  // Handle CORS preflight
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders });
   }
@@ -16,65 +16,43 @@ serve(async (req) => {
     const TELEGRAM_CHAT_ID = Deno.env.get('TELEGRAM_CHAT_ID');
 
     if (!TELEGRAM_BOT_TOKEN) {
-      console.error('TELEGRAM_BOT_TOKEN is not configured');
-      return new Response(JSON.stringify({ error: 'Bot token not configured' }), {
-        status: 500,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      return new Response(JSON.stringify({ error: 'TELEGRAM_BOT_TOKEN not set' }), {
+        status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
     }
-
     if (!TELEGRAM_CHAT_ID) {
-      console.error('TELEGRAM_CHAT_ID is not configured');
-      return new Response(JSON.stringify({ error: 'Chat ID not configured' }), {
-        status: 500,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      return new Response(JSON.stringify({ error: 'TELEGRAM_CHAT_ID not set' }), {
+        status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
     }
 
-    const { name, company, email, whatsapp } = await req.json();
+    const body = await req.json();
+    const { name, company, email, whatsapp } = body;
 
-    const message = [
-      '🔔 *Nuova Richiesta Demo*',
-      '',
-      `👤 *Nome:* ${name}`,
-      `🏢 *Azienda:* ${company}`,
-      `📧 *Email:* ${email}`,
-      `📱 *WhatsApp:* ${whatsapp}`,
-    ].join('\n');
+    const text = `🔔 Nuova Richiesta Demo\n\nNome: ${name}\nAzienda: ${company}\nEmail: ${email}\nWhatsApp: ${whatsapp}`;
 
-    const telegramRes = await fetch(
-      `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: TELEGRAM_CHAT_ID,
-          text: message,
-          parse_mode: 'Markdown',
-        }),
-      }
-    );
+    const res = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text }),
+    });
 
-    const telegramData = await telegramRes.json();
+    const data = await res.json();
 
-    if (!telegramRes.ok) {
-      console.error('Telegram API error:', JSON.stringify(telegramData));
-      return new Response(JSON.stringify({ error: 'Telegram send failed', details: telegramData }), {
-        status: 500,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    if (!res.ok) {
+      console.error('Telegram error:', JSON.stringify(data));
+      return new Response(JSON.stringify({ error: 'Telegram failed', details: data }), {
+        status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
     }
 
     return new Response(JSON.stringify({ success: true }), {
-      status: 200,
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
   } catch (error) {
     console.error('Error:', error);
-    const msg = error instanceof Error ? error.message : 'Unknown error';
-    return new Response(JSON.stringify({ error: msg }), {
-      status: 500,
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    return new Response(JSON.stringify({ error: String(error) }), {
+      status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
   }
 });
