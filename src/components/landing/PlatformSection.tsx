@@ -61,8 +61,8 @@ const modules: Module[] = [
     desc: "Gestione completa punti di fornitura luce (POD) e gas (PDR). Caricamento RCU, storico consumi, analisi AI e geolocalizzazione."
   },
   {
-    icon: Bot, tag: "AI", title: "GAIA — Assistente AI",
-    desc: "Assistente virtuale conversazionale. Analisi dati in linguaggio naturale, generazione report automatici e risposte a query complesse."
+    icon: Bot, tag: "AI", title: "MAX POWER — Agente AI Orchestratore",
+    desc: "Agente AI orchestratore conversazionale. Analisi dati in linguaggio naturale, generazione report automatici e risposte a query complesse."
   },
   {
     icon: BarChart3, tag: "OCR", title: "Preventivatore OCR",
