@@ -100,39 +100,41 @@ export const ComparisonSection = () => {
               </colgroup>
               <thead>
                 <tr>
-                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground border-b border-white/10">
+                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground border-b border-white/[0.08]">
                     Funzionalità
                   </th>
-                  <th className="text-center p-4 text-sm font-semibold text-primary bg-primary/[0.06] border-b border-primary/20">
+                  <th className="text-center p-4 text-sm font-bold text-primary border-b border-white/[0.08]"
+                    style={{ background: 'hsl(158 64% 42% / 0.06)' }}>
                     Energizzo
                   </th>
-                  <th className="text-center p-4 text-sm font-semibold text-muted-foreground border-b border-white/10">
+                  <th className="text-center p-4 text-sm font-semibold text-muted-foreground border-b border-white/[0.08]">
                     Trilance
                   </th>
-                  <th className="text-center p-4 text-sm font-semibold text-muted-foreground border-b border-white/10">
+                  <th className="text-center p-4 text-sm font-semibold text-muted-foreground border-b border-white/[0.08]">
                     iBill
                   </th>
-                  <th className="text-center p-4 text-sm font-semibold text-muted-foreground border-b border-white/10">
+                  <th className="text-center p-4 text-sm font-semibold text-muted-foreground border-b border-white/[0.08]">
                     Wattsdat
                   </th>
                 </tr>
               </thead>
               <tbody>
                 {rows.map((row, i) => (
-                  <tr key={i} className="hover:bg-white/[0.04] transition-colors">
-                    <td className="text-left p-4 text-sm font-medium text-foreground border-b border-white/[0.06]">
+                  <tr key={i} className="transition-colors hover:bg-white/[0.03]">
+                    <td className="text-left p-4 text-sm font-medium text-foreground border-b border-white/[0.05]">
                       {row.feature}
                     </td>
-                    <td className="p-4 text-sm font-semibold text-primary bg-primary/[0.03] border-b border-white/[0.06]">
+                    <td className="p-4 text-sm font-semibold text-primary border-b border-white/[0.05]"
+                      style={{ background: 'hsl(158 64% 42% / 0.03)' }}>
                       <CellContent value={row.energizzo} isEnergizzo />
                     </td>
-                    <td className="p-4 text-sm text-muted-foreground border-b border-white/[0.06]">
+                    <td className="p-4 text-sm text-muted-foreground border-b border-white/[0.05]">
                       <CellContent value={row.trilance} />
                     </td>
-                    <td className="p-4 text-sm text-muted-foreground border-b border-white/[0.06]">
+                    <td className="p-4 text-sm text-muted-foreground border-b border-white/[0.05]">
                       <CellContent value={row.ibill} />
                     </td>
-                    <td className="p-4 text-sm text-muted-foreground border-b border-white/[0.06]">
+                    <td className="p-4 text-sm text-muted-foreground border-b border-white/[0.05]">
                       <CellContent value={row.wattsdat} />
                     </td>
                   </tr>
