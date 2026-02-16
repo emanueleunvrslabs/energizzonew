@@ -105,20 +105,21 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="flex justify-center gap-6 flex-wrap"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto"
         >
           {[
-            { value: <AnimatedNumber value={741} />, label: "Venditori Attivi in Italia" },
-            { value: "23,8%", label: "Tasso di Switching 2024" },
-            { value: "-85%", label: "Costi Operativi" },
+            { value: <AnimatedNumber value={741} />, label: "Venditori attivi in Italia nel 2024. Erano 806 nel 2022.", color: "text-primary" },
+            { value: "23,8%", label: "Tasso di switching 2024. 1 cliente su 4 ha cambiato fornitore.", color: "text-amber-400" },
+            { value: "30,5M", label: "Punti di prelievo domestici nel mercato italiano.", color: "text-emerald-400" },
+            { value: "108,5", label: "€/MWh il PUN medio 2024. Francia: 58. Spagna: 63.", color: "text-blue-400" },
           ].map((stat, i) => (
-            <div key={i} className="liquid-glass-card-sm px-8 py-5 text-center">
-              <div className="text-3xl md:text-4xl font-extrabold gradient-text tracking-tight">
+            <div key={i} className="liquid-glass-card-sm p-8 text-center">
+              <div className={`text-4xl font-black tracking-tight mb-3 ${stat.color}`}>
                 {stat.value}
               </div>
-              <div className="text-xs text-muted-foreground mt-1 uppercase tracking-widest font-medium">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 {stat.label}
-              </div>
+              </p>
             </div>
           ))}
         </motion.div>
