@@ -83,23 +83,11 @@ const modules: Module[] = [
   },
 ];
 
-const colorMap: Record<string, { icon: string; iconBg: string; badge: string; badgeText: string }> = {
-  emerald:  { icon: "text-emerald-400", iconBg: "bg-emerald-500/20", badge: "bg-emerald-500/15 border-emerald-500/25", badgeText: "text-emerald-400" },
-  blue:     { icon: "text-blue-400",    iconBg: "bg-blue-500/20",    badge: "bg-blue-500/15 border-blue-500/25",    badgeText: "text-blue-400" },
-  violet:   { icon: "text-violet-400",  iconBg: "bg-violet-500/20",  badge: "bg-violet-500/15 border-violet-500/25",  badgeText: "text-violet-400" },
-  amber:    { icon: "text-amber-400",   iconBg: "bg-amber-500/20",   badge: "bg-amber-500/15 border-amber-500/25",   badgeText: "text-amber-400" },
-  cyan:     { icon: "text-cyan-400",    iconBg: "bg-cyan-500/20",    badge: "bg-cyan-500/15 border-cyan-500/25",    badgeText: "text-cyan-400" },
-  orange:   { icon: "text-orange-400",  iconBg: "bg-orange-500/20",  badge: "bg-orange-500/15 border-orange-500/25",  badgeText: "text-orange-400" },
-  red:      { icon: "text-red-400",     iconBg: "bg-red-500/20",     badge: "bg-red-500/15 border-red-500/25",     badgeText: "text-red-400" },
-  indigo:   { icon: "text-indigo-400",  iconBg: "bg-indigo-500/20",  badge: "bg-indigo-500/15 border-indigo-500/25",  badgeText: "text-indigo-400" },
-  yellow:   { icon: "text-yellow-400",  iconBg: "bg-yellow-500/20",  badge: "bg-yellow-500/15 border-yellow-500/25",  badgeText: "text-yellow-400" },
-  teal:     { icon: "text-teal-400",    iconBg: "bg-teal-500/20",    badge: "bg-teal-500/15 border-teal-500/25",    badgeText: "text-teal-400" },
-  rose:     { icon: "text-rose-400",    iconBg: "bg-rose-500/20",    badge: "bg-rose-500/15 border-rose-500/25",    badgeText: "text-rose-400" },
-  purple:   { icon: "text-purple-400",  iconBg: "bg-purple-500/20",  badge: "bg-purple-500/15 border-purple-500/25",  badgeText: "text-purple-400" },
-  sky:      { icon: "text-sky-400",     iconBg: "bg-sky-500/20",     badge: "bg-sky-500/15 border-sky-500/25",     badgeText: "text-sky-400" },
-  lime:     { icon: "text-lime-400",    iconBg: "bg-lime-500/20",    badge: "bg-lime-500/15 border-lime-500/25",    badgeText: "text-lime-400" },
-  fuchsia:  { icon: "text-fuchsia-400", iconBg: "bg-fuchsia-500/20", badge: "bg-fuchsia-500/15 border-fuchsia-500/25", badgeText: "text-fuchsia-400" },
-  pink:     { icon: "text-pink-400",    iconBg: "bg-pink-500/20",    badge: "bg-pink-500/15 border-pink-500/25",    badgeText: "text-pink-400" },
+const moduleStyle = {
+  icon: "text-primary",
+  iconBg: "bg-primary/15",
+  badge: "bg-primary/10 border-primary/20",
+  badgeText: "text-primary",
 };
 
 export const PlatformSection = () => {
@@ -143,7 +131,7 @@ export const PlatformSection = () => {
             {modules.map((mod, i) => {
               const isActive = activeIndex === i;
               const Icon = mod.icon;
-              const c = colorMap[mod.color];
+              const c = moduleStyle;
               return (
                 <button
                   key={i}
@@ -202,7 +190,7 @@ export const PlatformSection = () => {
                 className="max-w-md"
               >
                 {(() => {
-                  const ac = colorMap[active.color];
+                  const ac = moduleStyle;
                   return (
                     <>
                       <div className={`w-14 h-14 rounded-2xl ${ac.iconBg} border border-white/[0.1] flex items-center justify-center mb-6`}>
