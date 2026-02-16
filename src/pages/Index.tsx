@@ -26,12 +26,12 @@ const Index = () => {
         
         <main>
           <HeroSection />
+          <MarketDataSection />
           <FeaturesSection />
           <PlatformSection />
           <HowItWorksSection />
           <PricingSection />
           <ComparisonSection />
-          <MarketDataSection />
         </main>
         
         <Footer />
