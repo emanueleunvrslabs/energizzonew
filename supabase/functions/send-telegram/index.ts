@@ -6,20 +6,41 @@ const corsHeaders = {
 };
 
 serve(async (req) => {
+  // Handle CORS preflight
   if (req.method === 'OPTIONS') {
-    return new Response(null, { headers: corsHeaders });
+    return new Response('ok', { headers: corsHeaders });
   }
 
   try {
     const TELEGRAM_BOT_TOKEN = Deno.env.get('TELEGRAM_BOT_TOKEN');
     const TELEGRAM_CHAT_ID = Deno.env.get('TELEGRAM_CHAT_ID');
 
-    if (!TELEGRAM_BOT_TOKEN) throw new Error('TELEGRAM_BOT_TOKEN not configured');
-    if (!TELEGRAM_CHAT_ID) throw new Error('TELEGRAM_CHAT_ID not configured');
+    if (!TELEGRAM_BOT_TOKEN) {
+      console.error('TELEGRAM_BOT_TOKEN is not configured');
+      return new Response(JSON.stringify({ error: 'Bot token not configured' }), {
+        status: 500,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    if (!TELEGRAM_CHAT_ID) {
+      console.error('TELEGRAM_CHAT_ID is not configured');
+      return new Response(JSON.stringify({ error: 'Chat ID not configured' }), {
+        status: 500,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
 
     const { name, company, email, whatsapp } = await req.json();
 
-    const message = `🔔 *Nuova Richiesta Demo*\n\n👤 *Nome:* ${name}\n🏢 *Azienda:* ${company}\n📧 *Email:* ${email}\n📱 *WhatsApp:* ${whatsapp}`;
+    const message = [
+      '🔔 *Nuova Richiesta Demo*',
+      '',
+      `👤 *Nome:* ${name}`,
+      `🏢 *Azienda:* ${company}`,
+      `📧 *Email:* ${email}`,
+      `📱 *WhatsApp:* ${whatsapp}`,
+    ].join('\n');
 
     const telegramRes = await fetch(
       `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
@@ -37,16 +58,21 @@ serve(async (req) => {
     const telegramData = await telegramRes.json();
 
     if (!telegramRes.ok) {
-      throw new Error(`Telegram API error [${telegramRes.status}]: ${JSON.stringify(telegramData)}`);
+      console.error('Telegram API error:', JSON.stringify(telegramData));
+      return new Response(JSON.stringify({ error: 'Telegram send failed', details: telegramData }), {
+        status: 500,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
     }
 
     return new Response(JSON.stringify({ success: true }), {
+      status: 200,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
   } catch (error) {
     console.error('Error:', error);
     const msg = error instanceof Error ? error.message : 'Unknown error';
-    return new Response(JSON.stringify({ success: false, error: msg }), {
+    return new Response(JSON.stringify({ error: msg }), {
       status: 500,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
