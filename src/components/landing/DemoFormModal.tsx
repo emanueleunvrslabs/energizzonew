@@ -7,6 +7,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface DemoFormModalProps {
   open: boolean;
@@ -31,15 +32,10 @@ const DemoFormContent = ({ onClose }: { onClose: () => void }) => {
     }
     setLoading(true);
     try {
-      const res = await fetch(
-        `https://vvosudgadzruqelyfxah.supabase.co/functions/v1/send-telegram`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, company, email, whatsapp }),
-        }
-      );
-      if (!res.ok) throw new Error('Errore invio');
+      const { data, error } = await supabase.functions.invoke('send-telegram', {
+        body: { name, company, email, whatsapp },
+      });
+      if (error) throw error;
       setSubmitted(true);
     } catch {
       toast({ title: "Errore nell'invio, riprova", variant: "destructive" });
