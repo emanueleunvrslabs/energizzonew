@@ -5,28 +5,20 @@ import { PlatformSection } from "@/components/landing/PlatformSection";
 import { HowItWorksSection } from "@/components/landing/HowItWorksSection";
 import { PricingSection } from "@/components/landing/PricingSection";
 import { ComparisonSection } from "@/components/landing/ComparisonSection";
-import { MarketDataSection } from "@/components/landing/MarketDataSection";
 import { Footer } from "@/components/landing/Footer";
 
 const Index = () => {
   return (
     <div className="relative min-h-screen bg-background overflow-x-hidden">
-      {/* Modern mesh gradient background */}
       <div className="fixed inset-0 mesh-gradient" />
-      
-      {/* Subtle aurora effect */}
       <div className="fixed inset-0 aurora-bg pointer-events-none" />
-      
-      {/* Very subtle grain for texture */}
       <div className="grain-overlay" />
       
-      {/* Content */}
       <div className="relative z-10">
         <Navbar />
         
         <main>
           <HeroSection />
-          <MarketDataSection />
           <FeaturesSection />
           <PlatformSection />
           <HowItWorksSection />
