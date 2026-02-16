@@ -67,7 +67,7 @@ export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col-reverse md:flex-row md:items-center md:gap-10 lg:gap-12 xl:gap-16">
+        <div className="flex flex-col md:flex-row md:items-center md:gap-10 lg:gap-12 xl:gap-16">
           {/* Left — Text content */}
           <div className="flex-1 text-left">
             {/* Badge */}
