@@ -4,12 +4,10 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "Vantaggi", href: "#problem" },
-  { label: "Servizi", href: "#features" },
-  { label: "Come Funziona", href: "#how-it-works" },
-  { label: "Offerte", href: "#pricing" },
-  { label: "Contatti", href: "#contact" },
+  { label: "Funzionalità", href: "#features" },
+  { label: "Come Funziona", href: "#how" },
+  { label: "Prezzi", href: "#pricing" },
+  { label: "Confronto", href: "#compare" },
 ];
 
 export const Navbar = () => {
@@ -51,9 +49,10 @@ export const Navbar = () => {
       >
         {/* Logo */}
         <a href="#" className="pr-4 pl-2">
-          <span className="text-lg font-bold text-primary">
-            OK Energia
+          <span className="text-lg font-bold gradient-text">
+            energizzo
           </span>
+          <span className="text-sm text-muted-foreground ml-1">by UNVRS</span>
         </a>
         
         <div className="w-px h-5 bg-white/15 mx-1" />
@@ -72,14 +71,13 @@ export const Navbar = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            {/* Active indicator - concentric shape */}
             {activeLink === link.href && (
               <motion.div
                 layoutId="activeTab"
                 className="absolute inset-0 rounded-full liquid-glass"
                 style={{
-                  background: 'linear-gradient(135deg, hsl(38 92% 50% / 0.15) 0%, hsl(38 92% 50% / 0.05) 100%)',
-                  border: '1px solid hsl(38 92% 50% / 0.25)'
+                  background: 'linear-gradient(135deg, hsl(var(--primary) / 0.15) 0%, hsl(var(--primary) / 0.05) 100%)',
+                  border: '1px solid hsl(var(--primary) / 0.25)'
                 }}
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
               />
@@ -91,12 +89,12 @@ export const Navbar = () => {
         <div className="w-px h-5 bg-white/15 mx-1" />
         
         <motion.a
-          href="/login"
-          className="px-5 py-2 text-sm font-semibold text-primary-foreground bg-gradient-to-r from-primary to-primary/80 rounded-full transition-all duration-300"
-          whileHover={{ scale: 1.05, boxShadow: '0 8px 24px hsl(38 92% 50% / 0.4)' }}
+          href="#cta"
+          className="px-5 py-2 text-sm font-semibold text-primary-foreground bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-300"
+          whileHover={{ scale: 1.05, boxShadow: '0 8px 24px hsl(var(--primary) / 0.4)' }}
           whileTap={{ scale: 0.98 }}
         >
-          Accedi
+          Richiedi Demo
         </motion.a>
       </motion.div>
 
@@ -107,7 +105,7 @@ export const Navbar = () => {
           "liquid-glass-nav"
         )}
       >
-        <span className="text-primary font-bold text-lg">OK Energia</span>
+        <span className="gradient-text font-bold text-lg">energizzo</span>
         <motion.button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="text-foreground p-2 rounded-full liquid-glass"
@@ -118,7 +116,7 @@ export const Navbar = () => {
         </motion.button>
       </motion.div>
 
-      {/* Mobile Menu - Liquid Glass Panel */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -149,13 +147,13 @@ export const Navbar = () => {
               ))}
               <div className="h-px bg-white/10 my-2" />
               <motion.a
-                href="/login"
+                href="#cta"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
-                className="px-4 py-3 rounded-xl text-base font-semibold text-center text-primary-foreground bg-gradient-to-r from-primary to-primary/80"
+                className="px-4 py-3 rounded-xl text-base font-semibold text-center text-primary-foreground bg-gradient-to-r from-primary to-accent"
               >
-                Accedi
+                Richiedi Demo
               </motion.a>
             </div>
           </motion.div>

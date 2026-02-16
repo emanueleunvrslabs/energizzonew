@@ -1,147 +1,56 @@
 import { motion } from "framer-motion";
-import { 
-  Fingerprint, 
-  Brain, 
-  Route, 
-  Users, 
-  Bell, 
-  FileText,
-  Shield,
-  BarChart3,
-  ArrowUpRight
-} from "lucide-react";
+import { Zap, Smartphone, Brain, Phone, TrendingDown, Shield, ArrowUpRight } from "lucide-react";
 
 const features = [
   {
-    icon: Fingerprint,
-    title: "Scansione Bolletta AI",
-    description: "Fotografa la bolletta e l'AI estrae automaticamente tutti i dati per proporti l'offerta migliore.",
-    size: "small",
+    icon: Zap,
+    title: "Fatturazione AI Automatica",
+    description: "Billing completo per energia elettrica e gas. Calcolo automatico delle componenti ARERA, emissione bollette, gestione incassi e scadenze. Zero intervento manuale.",
+    tag: "AI-Powered",
+    tagType: "ai" as const,
     color: "from-primary to-emerald-500"
   },
   {
-    icon: Brain,
-    title: "Energia 100% Verde",
-    description: "Tutta la nostra energia proviene da fonti rinnovabili certificate.",
-    size: "small",
-    color: "from-emerald-500 to-teal-500"
-  },
-  {
-    icon: Route,
-    title: "Prezzi Trasparenti",
-    description: "Nessun costo nascosto. Sai sempre esattamente quanto paghi e perché.",
-    size: "small",
+    icon: Smartphone,
+    title: "Onboarding OCR Istantaneo",
+    description: "Il cliente fotografa la bolletta del vecchio fornitore. L'AI legge tutto, autocompila i campi, prepara il contratto. Da foto a firma in 60 secondi.",
+    tag: "Solo Energizzo",
+    tagType: "exclusive" as const,
     color: "from-blue-500 to-indigo-600"
   },
   {
-    icon: Users,
-    title: "3 Tipologie Clienti",
-    description: "Serviamo Domestici (solo App), Business e Pubblica Amministrazione.",
-    size: "small",
-    color: "from-pink-500 to-rose-500"
-  },
-  {
-    icon: Bell,
-    title: "Alert Consumi",
-    description: "Ricevi notifiche sui tuoi consumi e consigli per risparmiare ancora di più.",
-    size: "small",
-    color: "from-cyan-500 to-blue-500"
-  },
-  {
-    icon: FileText,
-    title: "Dati Precompilati",
-    description: "I dati della bolletta vengono copiati automaticamente per la registrazione.",
-    size: "small",
+    icon: Brain,
+    title: "CRM Clienti Intelligente",
+    description: "Gestione completa del ciclo di vita del cliente: anagrafiche, contratti, comunicazioni, storico. L'AI suggerisce azioni proattive e identifica opportunità di upselling.",
+    tag: "AI-Powered",
+    tagType: "ai" as const,
     color: "from-violet-500 to-purple-600"
   },
   {
-    icon: Shield,
-    title: "Nessun Vincolo",
-    description: "Sei libero di cambiare fornitore quando vuoi, senza penali.",
-    size: "small",
-    color: "from-slate-400 to-slate-600"
+    icon: Phone,
+    title: "Telefono AI Inbound & Outbound",
+    description: "L'AI risponde alle chiamate dei clienti 24/7: autoletture, duplicati bolletta, stato pagamenti. Fa anche chiamate outbound per solleciti, retention e campagne commerciali.",
+    tag: "Solo Energizzo",
+    tagType: "exclusive" as const,
+    color: "from-emerald-500 to-teal-500"
   },
   {
-    icon: BarChart3,
-    title: "Monitoraggio Consumi",
-    description: "Tieni sotto controllo i tuoi consumi con grafici e statistiche dettagliate.",
-    size: "small",
-    color: "from-green-500 to-emerald-600"
+    icon: TrendingDown,
+    title: "Predizione Churn & Morosità",
+    description: "L'AI monitora ogni cliente in tempo reale. Identifica chi sta per andarsene 30 giorni prima e chi rischia di non pagare. Azioni di retention e recupero automatiche.",
+    tag: "Solo Energizzo",
+    tagType: "exclusive" as const,
+    color: "from-amber-500 to-orange-500"
+  },
+  {
+    icon: Shield,
+    title: "Compliance ARERA Automatica",
+    description: "Ogni nuova delibera viene implementata automaticamente. Template aggiornati, schede sintetiche conformi, reportistiche normative pronte. Zero rischio di sanzioni.",
+    tag: "Solo Energizzo",
+    tagType: "exclusive" as const,
+    color: "from-cyan-500 to-blue-500"
   }
 ];
-
-const FeatureCard = ({ feature, index }: { feature: typeof features[0]; index: number }) => {
-  const isLarge = feature.size === "large";
-  const isMedium = feature.size === "medium";
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.05 }}
-      className={`
-        ${isLarge ? 'md:col-span-2 md:row-span-2' : ''}
-        ${isMedium ? 'md:col-span-2' : ''}
-        group relative
-      `}
-    >
-      <motion.div
-        className={`
-          relative h-full liquid-glass-card-sm p-6 md:p-8 
-          transition-all duration-500 overflow-hidden
-          ${isLarge ? 'min-h-[280px]' : 'min-h-[160px]'}
-        `}
-        whileHover={{ 
-          y: -4,
-          transition: { duration: 0.3 }
-        }}
-        style={{
-          background: 'linear-gradient(135deg, hsl(0 0% 100% / 0.08) 0%, hsl(0 0% 100% / 0.03) 100%)'
-        }}
-      >
-        {/* Hover glow effect */}
-        <div 
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[1.5rem]"
-          style={{
-            background: `radial-gradient(circle at 30% 30%, hsl(38 92% 50% / 0.08) 0%, transparent 60%)`
-          }}
-        />
-        
-        {/* Icon - Layered with gradient */}
-        <motion.div 
-          className={`
-            relative z-10
-            ${isLarge ? 'w-14 h-14' : 'w-11 h-11'} 
-            rounded-[1rem] bg-gradient-to-br ${feature.color}
-            flex items-center justify-center mb-4 shadow-lg
-          `}
-          whileHover={{ scale: 1.08, rotate: 3 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <feature.icon className={`${isLarge ? 'w-7 h-7' : 'w-5 h-5'} text-white`} />
-        </motion.div>
-        
-        {/* Content */}
-        <div className="relative z-10">
-          <h3 className={`${isLarge ? 'text-2xl' : 'text-lg'} font-bold text-foreground mb-2 group-hover:text-primary transition-colors`}>
-            {feature.title}
-          </h3>
-          <p className={`text-muted-foreground ${isLarge ? 'text-base' : 'text-sm'} leading-relaxed`}>
-            {feature.description}
-          </p>
-        </div>
-
-        {/* Hover arrow */}
-        <motion.div
-          className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
-        >
-          <ArrowUpRight className="w-5 h-5 text-primary" />
-        </motion.div>
-      </motion.div>
-    </motion.div>
-  );
-};
 
 export const FeaturesSection = () => {
   return (
@@ -153,28 +62,71 @@ export const FeaturesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
-          <motion.span 
-            className="inline-block px-5 py-2 rounded-full liquid-glass text-primary text-sm font-semibold mb-6"
-            whileHover={{ scale: 1.05 }}
-          >
-            I Nostri Vantaggi
-          </motion.span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            Tutto ciò che ti serve
+          <span className="font-mono text-xs font-semibold tracking-[0.15em] uppercase text-primary mb-4 block">
+            // Funzionalità
+          </span>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4 tracking-tight">
+            Tutto ciò che serve per gestire
             <br />
-            <span className="gradient-text-gold">in un unico fornitore</span>
+            il tuo business energetico
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            OK Energia ti offre luce e gas con un servizio completo, trasparente e sempre a portata di mano.
+          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+            6 funzionalità che nessun competitor possiede. Nato nell'era dell'AI, non adattato dopo.
           </p>
         </motion.div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-5 max-w-6xl mx-auto">
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
           {features.map((feature, index) => (
-            <FeatureCard key={index} feature={feature} index={index} />
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="group relative"
+            >
+              <motion.div
+                className="relative h-full liquid-glass-card-sm p-7 transition-all duration-500 overflow-hidden"
+                whileHover={{ y: -6, transition: { duration: 0.3 } }}
+                style={{
+                  background: 'linear-gradient(135deg, hsl(0 0% 100% / 0.08) 0%, hsl(0 0% 100% / 0.03) 100%)'
+                }}
+              >
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[1.5rem]"
+                  style={{ background: 'radial-gradient(circle at 30% 30%, hsl(var(--primary) / 0.08) 0%, transparent 60%)' }}
+                />
+
+                <motion.div
+                  className={`relative z-10 w-[52px] h-[52px] rounded-[14px] bg-gradient-to-br ${feature.color} flex items-center justify-center mb-5 shadow-lg`}
+                  whileHover={{ scale: 1.08, rotate: 3 }}
+                >
+                  <feature.icon className="w-6 h-6 text-white" />
+                </motion.div>
+
+                <div className="relative z-10">
+                  <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                    {feature.description}
+                  </p>
+                  <span className={`inline-block px-3 py-1 rounded-md text-xs font-semibold uppercase tracking-wider font-mono ${
+                    feature.tagType === 'exclusive'
+                      ? 'bg-primary/10 text-primary'
+                      : 'bg-violet-500/10 text-violet-400'
+                  }`}>
+                    {feature.tag}
+                  </span>
+                </div>
+
+                <motion.div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                  <ArrowUpRight className="w-5 h-5 text-primary" />
+                </motion.div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
       </div>

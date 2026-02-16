@@ -1,10 +1,10 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { HeroSection } from "@/components/landing/HeroSection";
-import { BandiMarquee } from "@/components/landing/BandiMarquee";
-import { ProblemSolutionSection } from "@/components/landing/ProblemSolutionSection";
 import { FeaturesSection } from "@/components/landing/FeaturesSection";
 import { HowItWorksSection } from "@/components/landing/HowItWorksSection";
 import { PricingSection } from "@/components/landing/PricingSection";
+import { ComparisonSection } from "@/components/landing/ComparisonSection";
+import { MarketDataSection } from "@/components/landing/MarketDataSection";
 import { Footer } from "@/components/landing/Footer";
 
 const Index = () => {
@@ -25,11 +25,11 @@ const Index = () => {
         
         <main>
           <HeroSection />
-          <BandiMarquee />
-          <ProblemSolutionSection />
           <FeaturesSection />
           <HowItWorksSection />
           <PricingSection />
+          <ComparisonSection />
+          <MarketDataSection />
         </main>
         
         <Footer />
