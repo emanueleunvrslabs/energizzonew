@@ -35,17 +35,17 @@ const AnimatedNumber = ({ value, suffix = "" }: { value: number; suffix?: string
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-32 pb-24">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24">
       <div className="container mx-auto px-4 relative z-10 text-center">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-2 px-5 py-2 rounded-full liquid-glass border-primary/30 mb-8"
+          className="inline-flex items-center gap-2 px-4 py-1.5 md:px-5 md:py-2 rounded-full liquid-glass border-primary/30 mb-6 md:mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          <span className="text-sm font-medium text-primary tracking-wide">
+          <span className="text-xs md:text-sm font-medium text-primary tracking-wide">
             Piattaforma AI-Native per il Mercato Energia
           </span>
         </motion.div>
@@ -57,7 +57,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-black text-foreground leading-[1.05] tracking-tight mb-7"
+          className="text-3xl md:text-6xl lg:text-7xl font-black text-foreground leading-[1.1] tracking-tight mb-5 md:mb-7"
         >
           Il team che ti manca.
           <br />
@@ -69,7 +69,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-[680px] mx-auto mb-12 leading-relaxed"
+          className="text-base md:text-xl text-muted-foreground max-w-[680px] mx-auto mb-8 md:mb-12 leading-relaxed px-2"
         >
           Energizzo fattura, risponde ai clienti, prevede i problemi, assicura la compliance e vende di più. Tutto con intelligenza artificiale, tutto in automatico.
         </motion.p>
@@ -79,11 +79,11 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex gap-4 justify-center flex-wrap mb-20"
+          className="flex gap-3 md:gap-4 justify-center flex-wrap mb-12 md:mb-20"
         >
           <motion.a
             href="#cta"
-            className="btn-premium inline-flex items-center gap-2 text-base"
+            className="btn-premium inline-flex items-center gap-2 text-sm md:text-base px-6 py-3 md:px-8 md:py-4"
             whileHover={{ scale: 1.05, y: -3 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -92,7 +92,7 @@ export const HeroSection = () => {
           </motion.a>
           <motion.a
             href="#features"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-foreground liquid-glass transition-all duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold text-sm md:text-base text-foreground liquid-glass transition-all duration-300"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -105,7 +105,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5 max-w-5xl mx-auto"
         >
           {[
             { value: <AnimatedNumber value={741} />, label: "Venditori attivi in Italia nel 2024. Erano 806 nel 2022.", color: "text-primary" },
@@ -113,11 +113,11 @@ export const HeroSection = () => {
             { value: "30,5M", label: "Punti di prelievo domestici nel mercato italiano.", color: "text-emerald-400" },
             { value: "108,5", label: "€/MWh il PUN medio 2024. Francia: 58. Spagna: 63.", color: "text-blue-400" },
           ].map((stat, i) => (
-            <div key={i} className="liquid-glass-card-sm p-8 text-center">
-              <div className={`text-4xl font-black tracking-tight mb-3 ${stat.color}`}>
+            <div key={i} className="liquid-glass-card-sm p-4 md:p-8 text-center">
+              <div className={`text-2xl md:text-4xl font-black tracking-tight mb-2 md:mb-3 ${stat.color}`}>
                 {stat.value}
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
                 {stat.label}
               </p>
             </div>

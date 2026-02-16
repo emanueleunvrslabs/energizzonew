@@ -54,7 +54,7 @@ const features = [
 
 export const FeaturesSection = () => {
   return (
-    <section id="features" className="py-32 relative overflow-hidden">
+    <section id="features" className="py-16 md:py-32 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -62,17 +62,17 @@ export const FeaturesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <span className="font-mono text-xs font-semibold tracking-[0.15em] uppercase text-primary mb-4 block">
             // Funzionalità
           </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4 tracking-tight">
+          <h2 className="text-2xl md:text-5xl font-extrabold text-foreground mb-3 md:mb-4 tracking-tight">
             Tutto ciò che serve per gestire
-            <br />
-            il tuo business energetico
+            <br className="hidden md:block" />
+            <span className="md:hidden"> </span>il tuo business energetico
           </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto px-2">
             6 funzionalità che nessun competitor possiede.
             <br />
             Nato nell'era dell'AI, non adattato dopo.
@@ -80,7 +80,7 @@ export const FeaturesSection = () => {
         </motion.div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 max-w-6xl mx-auto">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -91,7 +91,7 @@ export const FeaturesSection = () => {
               className="group relative"
             >
               <motion.div
-                className="relative h-full liquid-glass-card-sm p-7 transition-all duration-500 overflow-hidden"
+                className="relative h-full liquid-glass-card-sm p-5 md:p-7 transition-all duration-500 overflow-hidden"
                 whileHover={{ y: -6, transition: { duration: 0.3 } }}
                 style={{
                   background: 'linear-gradient(135deg, hsl(0 0% 100% / 0.08) 0%, hsl(0 0% 100% / 0.03) 100%)'

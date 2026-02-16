@@ -27,7 +27,7 @@ const steps = [
 
 export const HowItWorksSection = () => {
   return (
-    <section id="how" className="py-32 relative overflow-hidden">
+    <section id="how" className="py-16 md:py-32 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -35,23 +35,23 @@ export const HowItWorksSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <span className="font-mono text-xs font-semibold tracking-[0.15em] uppercase text-primary mb-4 block">
             // Come Funziona
           </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4 tracking-tight">
+          <h2 className="text-2xl md:text-5xl font-extrabold text-foreground mb-3 md:mb-4 tracking-tight">
             Operativo in meno di una settimana
           </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto px-2">
             Nessun progetto IT. Nessuna migrazione complessa.
-            <br />
-            Energizzo si adatta a te.
+            <br className="hidden md:block" />
+            <span className="md:hidden"> </span>Energizzo si adatta a te.
           </p>
         </motion.div>
 
         {/* Steps */}
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -61,14 +61,14 @@ export const HowItWorksSection = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <motion.div
-                className="liquid-glass-card-sm p-8 h-full text-center group cursor-pointer relative"
+                className="liquid-glass-card-sm p-6 md:p-8 h-full text-center group cursor-pointer relative"
                 whileHover={{ y: -4 }}
                 style={{
                   background: 'linear-gradient(135deg, hsl(0 0% 100% / 0.08) 0%, hsl(0 0% 100% / 0.03) 100%)'
                 }}
               >
                 {/* Step number */}
-                <div className="text-6xl font-black tracking-tight mb-5 leading-none"
+                <div className="text-5xl md:text-6xl font-black tracking-tight mb-4 md:mb-5 leading-none"
                   style={{
                     background: 'linear-gradient(180deg, hsl(var(--primary) / 0.3) 0%, transparent 100%)',
                     WebkitBackgroundClip: 'text',

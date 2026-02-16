@@ -95,7 +95,7 @@ export const PlatformSection = () => {
   const active = modules[activeIndex];
 
   return (
-    <section id="platform" className="py-32 relative overflow-hidden">
+    <section id="platform" className="py-16 md:py-32 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <motion.div
@@ -103,16 +103,16 @@ export const PlatformSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <span className="font-mono text-xs font-semibold tracking-[0.15em] uppercase text-primary mb-4 block">
             // Piattaforma
           </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4 tracking-tight">
+          <h2 className="text-2xl md:text-5xl font-extrabold text-foreground mb-3 md:mb-4 tracking-tight">
             Un ERP/CRM completo per{" "}
             <span className="gradient-text">fornitori di energia</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
             Oltre 100 pagine e 150+ endpoint API. Una suite enterprise che copre
             l'intero ciclo di vita del cliente.
           </p>
@@ -127,7 +127,7 @@ export const PlatformSection = () => {
           className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-0 liquid-glass-card overflow-hidden"
         >
           {/* Left — module list */}
-          <div className="lg:w-[420px] shrink-0 border-r border-white/[0.08] max-h-[520px] overflow-y-auto scrollbar-thin">
+          <div className="lg:w-[420px] shrink-0 border-b lg:border-b-0 lg:border-r border-white/[0.08] max-h-[360px] lg:max-h-[520px] overflow-y-auto scrollbar-thin">
             {modules.map((mod, i) => {
               const isActive = activeIndex === i;
               const Icon = mod.icon;
@@ -178,7 +178,7 @@ export const PlatformSection = () => {
           </div>
 
           {/* Right — detail panel */}
-          <div className="flex-1 p-8 lg:p-12 flex items-center justify-center min-h-[320px] lg:min-h-[520px]">
+          <div className="flex-1 p-6 md:p-8 lg:p-12 flex items-center justify-center min-h-[280px] lg:min-h-[520px]">
 
             <AnimatePresence mode="wait">
               <motion.div
@@ -204,7 +204,7 @@ export const PlatformSection = () => {
                   );
                 })()}
 
-                <h3 className="text-2xl lg:text-3xl font-extrabold text-foreground mb-4 tracking-tight">
+                <h3 className="text-xl lg:text-3xl font-extrabold text-foreground mb-3 md:mb-4 tracking-tight">
                   {active.title}
                 </h3>
 
