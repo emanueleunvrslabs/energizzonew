@@ -30,24 +30,26 @@ const CellContent = ({ value, isEnergizzo }: { value: CellValue; isEnergizzo?: b
   }
 
   return (
-    <span className="inline-flex items-center justify-center gap-1.5">
-      {value.type === "yes" && (
-        <span className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
-          <Check className="text-emerald-400" size={iconSize} strokeWidth={3} />
-        </span>
-      )}
-      {value.type === "no" && (
-        <span className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
-          <X className="text-red-400" size={iconSize} strokeWidth={3} />
-        </span>
-      )}
-      {value.type === "partial" && (
-        <span className="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0">
-          <AlertTriangle className="text-amber-400" size={iconSize - 2} strokeWidth={2.5} />
-        </span>
-      )}
-      {value.label && <span>{value.label}</span>}
-    </span>
+    <div className="flex items-center justify-center gap-1.5">
+      <span className="w-5 h-5 flex items-center justify-center flex-shrink-0">
+        {value.type === "yes" && (
+          <span className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <Check className="text-emerald-400" size={iconSize} strokeWidth={3} />
+          </span>
+        )}
+        {value.type === "no" && (
+          <span className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center">
+            <X className="text-red-400" size={iconSize} strokeWidth={3} />
+          </span>
+        )}
+        {value.type === "partial" && (
+          <span className="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center">
+            <AlertTriangle className="text-amber-400" size={iconSize - 2} strokeWidth={2.5} />
+          </span>
+        )}
+      </span>
+      {value.label && <span className="text-left">{value.label}</span>}
+    </div>
   );
 };
 
