@@ -42,13 +42,15 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-primary/30 bg-primary/10 mb-8"
+          className="inline-flex items-center gap-2 px-5 py-2 rounded-full liquid-glass border-primary/30 mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
           <span className="text-sm font-medium text-primary tracking-wide">
             Piattaforma AI-Native per il Mercato Energia
           </span>
         </motion.div>
+
+        {/* Hero badge - liquid glass */}
 
         {/* Title */}
         <motion.h1
@@ -103,32 +105,22 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="flex justify-center gap-16 flex-wrap"
+          className="flex justify-center gap-6 flex-wrap"
         >
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-extrabold gradient-text tracking-tight">
-              <AnimatedNumber value={741} />
+          {[
+            { value: <AnimatedNumber value={741} />, label: "Venditori Attivi in Italia" },
+            { value: "23,8%", label: "Tasso di Switching 2024" },
+            { value: "-85%", label: "Costi Operativi" },
+          ].map((stat, i) => (
+            <div key={i} className="liquid-glass-card-sm px-8 py-5 text-center">
+              <div className="text-3xl md:text-4xl font-extrabold gradient-text tracking-tight">
+                {stat.value}
+              </div>
+              <div className="text-xs text-muted-foreground mt-1 uppercase tracking-widest font-medium">
+                {stat.label}
+              </div>
             </div>
-            <div className="text-xs text-muted-foreground mt-1 uppercase tracking-widest font-medium">
-              Venditori Attivi in Italia
-            </div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-extrabold gradient-text tracking-tight">
-              23,8%
-            </div>
-            <div className="text-xs text-muted-foreground mt-1 uppercase tracking-widest font-medium">
-              Tasso di Switching 2024
-            </div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-extrabold gradient-text tracking-tight">
-              -85%
-            </div>
-            <div className="text-xs text-muted-foreground mt-1 uppercase tracking-widest font-medium">
-              Costi Operativi
-            </div>
-          </div>
+          ))}
         </motion.div>
       </div>
     </section>

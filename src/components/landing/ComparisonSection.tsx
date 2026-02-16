@@ -45,48 +45,50 @@ export const ComparisonSection = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="max-w-5xl mx-auto overflow-x-auto"
         >
-          <table className="w-full border-collapse rounded-[20px] overflow-hidden border border-white/10">
-            <thead>
-              <tr>
-                <th className="text-left p-4 text-sm font-semibold text-muted-foreground bg-white/[0.04] border-b border-white/10">
-                  Funzionalità
-                </th>
-                <th className="text-center p-4 text-sm font-semibold text-primary bg-primary/[0.08] border-b-2 border-primary/30">
-                  Energizzo
-                </th>
-                <th className="text-center p-4 text-sm font-semibold text-muted-foreground bg-white/[0.04] border-b border-white/10">
-                  Trilance
-                </th>
-                <th className="text-center p-4 text-sm font-semibold text-muted-foreground bg-white/[0.04] border-b border-white/10">
-                  iBill
-                </th>
-                <th className="text-center p-4 text-sm font-semibold text-muted-foreground bg-white/[0.04] border-b border-white/10">
-                  Wattsdat
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((row, i) => (
-                <tr key={i} className="hover:bg-white/[0.02] transition-colors">
-                  <td className="text-left p-4 text-sm font-medium text-foreground border-b border-white/[0.03]">
-                    {row.feature}
-                  </td>
-                  <td className="text-center p-4 text-sm font-semibold text-primary bg-primary/[0.03] border-b border-white/[0.03]">
-                    {row.energizzo}
-                  </td>
-                  <td className="text-center p-4 text-sm text-muted-foreground border-b border-white/[0.03]">
-                    {row.trilance}
-                  </td>
-                  <td className="text-center p-4 text-sm text-muted-foreground border-b border-white/[0.03]">
-                    {row.ibill}
-                  </td>
-                  <td className="text-center p-4 text-sm text-muted-foreground border-b border-white/[0.03]">
-                    {row.wattsdat}
-                  </td>
+          <div className="liquid-glass-card overflow-hidden">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr>
+                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground border-b border-white/10">
+                    Funzionalità
+                  </th>
+                  <th className="text-center p-4 text-sm font-semibold text-primary bg-primary/[0.06] border-b border-primary/20">
+                    Energizzo
+                  </th>
+                  <th className="text-center p-4 text-sm font-semibold text-muted-foreground border-b border-white/10">
+                    Trilance
+                  </th>
+                  <th className="text-center p-4 text-sm font-semibold text-muted-foreground border-b border-white/10">
+                    iBill
+                  </th>
+                  <th className="text-center p-4 text-sm font-semibold text-muted-foreground border-b border-white/10">
+                    Wattsdat
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {rows.map((row, i) => (
+                  <tr key={i} className="hover:bg-white/[0.04] transition-colors">
+                    <td className="text-left p-4 text-sm font-medium text-foreground border-b border-white/[0.06]">
+                      {row.feature}
+                    </td>
+                    <td className="text-center p-4 text-sm font-semibold text-primary bg-primary/[0.03] border-b border-white/[0.06]">
+                      {row.energizzo}
+                    </td>
+                    <td className="text-center p-4 text-sm text-muted-foreground border-b border-white/[0.06]">
+                      {row.trilance}
+                    </td>
+                    <td className="text-center p-4 text-sm text-muted-foreground border-b border-white/[0.06]">
+                      {row.ibill}
+                    </td>
+                    <td className="text-center p-4 text-sm text-muted-foreground border-b border-white/[0.06]">
+                      {row.wattsdat}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </motion.div>
       </div>
     </section>

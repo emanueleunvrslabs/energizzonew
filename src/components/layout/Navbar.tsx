@@ -33,7 +33,7 @@ export const Navbar = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4"
+      className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-6 px-4"
     >
       {/* Desktop - Floating Liquid Glass Pill */}
       <motion.div

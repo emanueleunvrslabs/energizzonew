@@ -56,16 +56,18 @@ export const Footer = () => {
       </section>
 
       {/* Footer */}
-      <footer className="relative py-12 border-t border-white/10 z-10">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-sm text-muted-foreground mb-2">
-            <span className="font-bold gradient-text">energizzo</span>
-            <span className="mx-3 text-white/10">|</span>
-            by <a href="#" className="text-primary hover:underline">UNVRS Labs</a>
-          </p>
-          <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} UNVRS Labs S.r.l. — Tutti i diritti riservati
-          </p>
+      <footer className="relative py-12 z-10">
+        <div className="container mx-auto px-4">
+          <div className="liquid-glass-card-sm p-8 text-center">
+            <p className="text-sm text-muted-foreground mb-2">
+              <span className="font-bold gradient-text">energizzo</span>
+              <span className="mx-3 text-white/10">|</span>
+              by <a href="#" className="text-primary hover:underline">UNVRS Labs</a>
+            </p>
+            <p className="text-xs text-muted-foreground">
+              © {new Date().getFullYear()} UNVRS Labs S.r.l. — Tutti i diritti riservati
+            </p>
+          </div>
         </div>
       </footer>
     </>
