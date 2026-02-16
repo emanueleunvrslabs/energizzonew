@@ -93,7 +93,7 @@ export const ComparisonSection = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="max-w-5xl mx-auto"
         >
-          <div className="liquid-glass-card overflow-hidden">
+          <div className="liquid-glass rounded-xl overflow-hidden">
             <table className="w-full border-collapse table-fixed">
               <colgroup>
                 <col className="w-[32%] md:w-[30%]" />
