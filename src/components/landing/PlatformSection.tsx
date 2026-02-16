@@ -80,7 +80,7 @@ export const PlatformSection = () => {
             Un ERP/CRM completo per{" "}
             <span className="gradient-text">fornitori di energia</span>
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-2 text-balance">
             Oltre 100 pagine e 150+ endpoint API. Una suite enterprise che copre
             l'intero ciclo di vita del cliente.
           </p>
