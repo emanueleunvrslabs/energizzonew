@@ -32,7 +32,7 @@ const DemoFormContent = ({ onClose }: { onClose: () => void }) => {
     }
     setLoading(true);
     try {
-      const { data, error } = await supabase.functions.invoke('send-telegram', {
+      const { data, error } = await supabase.functions.invoke('send-telegram-notification', {
         body: { name, company, email, whatsapp },
       });
       console.log('Telegram response:', { data, error });
