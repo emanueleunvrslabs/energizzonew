@@ -103,7 +103,7 @@ export const HeroSection = () => {
           </motion.a>
           <motion.a
             href="#features"
-            className="inline-flex items-center gap-2 px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold text-sm md:text-base text-foreground liquid-glass transition-all duration-300"
+            className="hidden md:inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-base text-foreground liquid-glass transition-all duration-300"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
