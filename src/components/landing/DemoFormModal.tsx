@@ -21,13 +21,31 @@ const DemoFormContent = ({ onClose }: { onClose: () => void }) => {
   const [submitted, setSubmitted] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !company.trim() || !email.trim() || !whatsapp.trim()) {
       toast({ title: "Compila tutti i campi", variant: "destructive" });
       return;
     }
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      const res = await fetch(
+        `https://vvosudgadzruqelyfxah.supabase.co/functions/v1/send-telegram`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, company, email, whatsapp }),
+        }
+      );
+      if (!res.ok) throw new Error('Errore invio');
+      setSubmitted(true);
+    } catch {
+      toast({ title: "Errore nell'invio, riprova", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -105,11 +123,12 @@ const DemoFormContent = ({ onClose }: { onClose: () => void }) => {
 
       <motion.button
         type="submit"
-        className="w-full py-3 rounded-full font-semibold text-sm bg-gradient-to-r from-primary to-accent text-primary-foreground"
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
+        disabled={loading}
+        className="w-full py-3 rounded-full font-semibold text-sm bg-gradient-to-r from-primary to-accent text-primary-foreground disabled:opacity-50"
+        whileHover={{ scale: loading ? 1 : 1.02 }}
+        whileTap={{ scale: loading ? 1 : 0.98 }}
       >
-        Invia Richiesta
+        {loading ? "Invio in corso..." : "Invia Richiesta"}
       </motion.button>
     </form>
   );
