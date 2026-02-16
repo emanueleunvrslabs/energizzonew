@@ -88,14 +88,6 @@ export const PlatformSection = () => {
 
   return (
     <section id="platform" className="py-32 relative overflow-hidden">
-      {/* Background glow orbs */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] rounded-full opacity-20"
-          style={{ background: 'radial-gradient(circle, hsl(158 64% 42% / 0.4) 0%, transparent 70%)' }} />
-        <div className="absolute bottom-1/4 -right-32 w-[400px] h-[400px] rounded-full opacity-15"
-          style={{ background: 'radial-gradient(circle, hsl(170 50% 50% / 0.35) 0%, transparent 70%)' }} />
-      </div>
-
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <motion.div
@@ -124,16 +116,10 @@ export const PlatformSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-0 overflow-hidden rounded-[2rem]"
-          style={{
-            background: 'linear-gradient(135deg, hsl(215 30% 15% / 0.9) 0%, hsl(215 35% 12% / 0.95) 100%)',
-            border: '1px solid hsl(158 64% 42% / 0.15)',
-            boxShadow: '0 0 80px hsl(158 64% 42% / 0.08), 0 8px 32px hsl(0 0% 0% / 0.2), inset 0 1px 0 0 hsl(0 0% 100% / 0.08)',
-          }}
+          className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-0 liquid-glass-card overflow-hidden"
         >
           {/* Left — module list */}
-          <div className="lg:w-[420px] shrink-0 max-h-[520px] overflow-y-auto scrollbar-thin"
-            style={{ borderRight: '1px solid hsl(158 64% 42% / 0.1)' }}>
+          <div className="lg:w-[420px] shrink-0 border-r border-white/[0.08] max-h-[520px] overflow-y-auto scrollbar-thin">
             {modules.map((mod, i) => {
               const isActive = activeIndex === i;
               const Icon = mod.icon;
@@ -141,33 +127,22 @@ export const PlatformSection = () => {
                 <button
                   key={i}
                   onClick={() => setActiveIndex(i)}
-                  className="w-full flex items-center gap-3 px-5 py-3.5 text-left transition-all duration-200 relative group"
-                  style={{
-                    borderBottom: '1px solid hsl(0 0% 100% / 0.04)',
-                    background: isActive
-                      ? 'linear-gradient(90deg, hsl(158 64% 42% / 0.12) 0%, hsl(158 64% 42% / 0.04) 100%)'
-                      : 'transparent',
-                  }}
+                  className={`w-full flex items-center gap-3 px-5 py-3.5 text-left transition-all duration-200 border-b border-white/[0.05] relative group ${
+                    isActive ? "bg-white/[0.06]" : "hover:bg-white/[0.03]"
+                  }`}
                 >
                   {/* Active bar */}
                   {isActive && (
                     <motion.div
                       layoutId="platformBar"
-                      className="absolute left-0 top-0 bottom-0 w-[3px] rounded-r-full"
-                      style={{ background: 'linear-gradient(180deg, hsl(158 64% 50%), hsl(158 64% 35%))' }}
+                      className="absolute left-0 top-0 bottom-0 w-[3px] bg-primary rounded-r-full"
                       transition={{ type: "spring", bounce: 0.15, duration: 0.4 }}
                     />
                   )}
 
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-all duration-200 ${
-                    isActive ? "" : "group-hover:scale-110"
-                  }`}
-                    style={{
-                      background: isActive
-                        ? 'linear-gradient(135deg, hsl(158 64% 42% / 0.3), hsl(170 50% 45% / 0.2))'
-                        : 'hsl(0 0% 100% / 0.06)',
-                      boxShadow: isActive ? '0 0 12px hsl(158 64% 42% / 0.2)' : 'none',
-                    }}>
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-200 ${
+                    isActive ? "bg-primary/20" : "bg-white/[0.06] group-hover:bg-white/[0.1]"
+                  }`}>
                     <Icon className={`w-4 h-4 transition-colors duration-200 ${
                       isActive ? "text-primary" : "text-muted-foreground group-hover:text-foreground"
                     }`} />
@@ -181,17 +156,11 @@ export const PlatformSection = () => {
                     </span>
                   </div>
 
-                  <span className={`font-mono text-[10px] tracking-wider uppercase px-2 py-0.5 rounded-full shrink-0 transition-all duration-200 ${
+                  <span className={`font-mono text-[10px] tracking-wider uppercase px-2 py-0.5 rounded-full shrink-0 transition-colors duration-200 ${
                     isActive
-                      ? "text-primary"
-                      : "text-muted-foreground"
-                  }`}
-                    style={{
-                      background: isActive
-                        ? 'hsl(158 64% 42% / 0.15)'
-                        : 'hsl(0 0% 100% / 0.06)',
-                      border: isActive ? '1px solid hsl(158 64% 42% / 0.2)' : '1px solid transparent',
-                    }}>
+                      ? "bg-primary/15 text-primary"
+                      : "bg-white/[0.06] text-muted-foreground"
+                  }`}>
                     {mod.tag}
                   </span>
                 </button>
@@ -200,10 +169,7 @@ export const PlatformSection = () => {
           </div>
 
           {/* Right — detail panel */}
-          <div className="flex-1 p-8 lg:p-12 flex items-center justify-center min-h-[320px] lg:min-h-[520px] relative">
-            {/* Subtle glow behind content */}
-            <div className="absolute inset-0 pointer-events-none"
-              style={{ background: 'radial-gradient(ellipse at 50% 50%, hsl(158 64% 42% / 0.06) 0%, transparent 70%)' }} />
+          <div className="flex-1 p-8 lg:p-12 flex items-center justify-center min-h-[320px] lg:min-h-[520px]">
 
             <AnimatePresence mode="wait">
               <motion.div
@@ -212,14 +178,9 @@ export const PlatformSection = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.25 }}
-                className="max-w-md relative z-10"
+                className="max-w-md"
               >
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
-                  style={{
-                    background: 'linear-gradient(135deg, hsl(158 64% 42% / 0.25), hsl(170 50% 45% / 0.15))',
-                    boxShadow: '0 0 24px hsl(158 64% 42% / 0.15), inset 0 1px 0 hsl(0 0% 100% / 0.1)',
-                    border: '1px solid hsl(158 64% 42% / 0.2)',
-                  }}>
+                <div className="w-14 h-14 rounded-2xl bg-primary/15 border border-white/[0.1] flex items-center justify-center mb-6">
                   <active.icon className="w-7 h-7 text-primary" />
                 </div>
 
