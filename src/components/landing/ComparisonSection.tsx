@@ -29,26 +29,31 @@ const CellContent = ({ value, isEnergizzo }: { value: CellValue; isEnergizzo?: b
     return <span className={`block text-center ${isEnergizzo ? "text-primary font-semibold" : ""}`}>{value.label}</span>;
   }
 
+  const icon = (
+    <span className="w-5 h-5 flex items-center justify-center flex-shrink-0">
+      {value.type === "yes" && (
+        <span className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center">
+          <Check className="text-emerald-400" size={iconSize} strokeWidth={3} />
+        </span>
+      )}
+      {value.type === "no" && (
+        <span className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center">
+          <X className="text-red-400" size={iconSize} strokeWidth={3} />
+        </span>
+      )}
+      {value.type === "partial" && (
+        <span className="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center">
+          <AlertTriangle className="text-amber-400" size={iconSize - 2} strokeWidth={2.5} />
+        </span>
+      )}
+    </span>
+  );
+
   return (
-    <div className="flex flex-col items-center gap-0.5">
-      <span className="w-5 h-5 flex items-center justify-center flex-shrink-0">
-        {value.type === "yes" && (
-          <span className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center">
-            <Check className="text-emerald-400" size={iconSize} strokeWidth={3} />
-          </span>
-        )}
-        {value.type === "no" && (
-          <span className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center">
-            <X className="text-red-400" size={iconSize} strokeWidth={3} />
-          </span>
-        )}
-        {value.type === "partial" && (
-          <span className="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center">
-            <AlertTriangle className="text-amber-400" size={iconSize - 2} strokeWidth={2.5} />
-          </span>
-        )}
-      </span>
-      {value.label && <span className="text-xs text-center">{value.label}</span>}
+    <div className="w-full grid items-center" style={{ gridTemplateColumns: '1fr 20px 1fr' }}>
+      <span />
+      {icon}
+      <span className="text-xs whitespace-nowrap pl-1.5">{value.label || '\u00A0'}</span>
     </div>
   );
 };
