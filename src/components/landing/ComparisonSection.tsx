@@ -60,7 +60,7 @@ const CellContent = ({ value, isEnergizzo }: { value: CellValue; isEnergizzo?: b
 
 export const ComparisonSection = () => {
   return (
-    <section id="compare" className="py-32 relative overflow-hidden">
+    <section id="compare" className="py-16 md:py-32 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <motion.div
@@ -68,15 +68,15 @@ export const ComparisonSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <span className="font-mono text-xs font-semibold tracking-[0.15em] uppercase text-primary mb-4 block">
             // Confronto
           </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4 tracking-tight">
+          <h2 className="text-2xl md:text-5xl font-extrabold text-foreground mb-3 md:mb-4 tracking-tight">
             Perché Energizzo è diverso
           </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto px-2">
             I competitor sono nati prima dell'AI. Energizzo è nato con l'AI.
           </p>
         </motion.div>
@@ -87,7 +87,7 @@ export const ComparisonSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="max-w-5xl mx-auto overflow-x-auto"
+          className="max-w-5xl mx-auto overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0"
         >
           <div className="liquid-glass-card overflow-hidden">
             <table className="w-full border-collapse table-fixed">

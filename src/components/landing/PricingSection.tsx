@@ -62,7 +62,7 @@ const calculator = [
 
 export const PricingSection = () => {
   return (
-    <section id="pricing" className="py-32 relative overflow-hidden">
+    <section id="pricing" className="py-16 md:py-32 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -70,21 +70,21 @@ export const PricingSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <span className="font-mono text-xs font-semibold tracking-[0.15em] uppercase text-primary mb-4 block">
             // Prezzi Trasparenti
           </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4 tracking-tight">
+          <h2 className="text-2xl md:text-5xl font-extrabold text-foreground mb-3 md:mb-4 tracking-tight">
             Paghi solo per quello che gestisci
           </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto px-2">
             Nessun canone fisso. Il prezzo scala con il tuo business, calcolato sull'RCU.
           </p>
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-6xl mx-auto items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-5 max-w-6xl mx-auto items-stretch">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
@@ -110,7 +110,7 @@ export const PricingSection = () => {
               )}
 
               <motion.div
-                className="relative h-full rounded-[2rem] p-8 flex flex-col transition-all duration-500 overflow-hidden liquid-glass"
+                className="relative h-full rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 flex flex-col transition-all duration-500 overflow-hidden liquid-glass"
                 whileHover={{ y: -4 }}
                 style={{
                   background: plan.highlighted
@@ -176,10 +176,10 @@ export const PricingSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-12 max-w-4xl mx-auto"
         >
-          <div className="liquid-glass-card-sm p-8 text-center">
-            <h3 className="text-lg font-bold text-foreground mb-2">Calcolo rapido: la piattaforma base</h3>
-            <p className="text-sm text-muted-foreground mb-6">Solo POD + PDR, esclusi OTP e moduli extra</p>
-            <div className="flex justify-center gap-10 flex-wrap">
+          <div className="liquid-glass-card-sm p-5 md:p-8 text-center">
+            <h3 className="text-base md:text-lg font-bold text-foreground mb-2">Calcolo rapido: la piattaforma base</h3>
+            <p className="text-xs md:text-sm text-muted-foreground mb-4 md:mb-6">Solo POD + PDR, esclusi OTP e moduli extra</p>
+            <div className="grid grid-cols-2 md:flex md:justify-center gap-4 md:gap-10 flex-wrap">
               {calculator.map((item, i) => (
                 <div key={i}>
                   <div className="text-xs text-muted-foreground uppercase tracking-widest mb-1">{item.points}</div>
