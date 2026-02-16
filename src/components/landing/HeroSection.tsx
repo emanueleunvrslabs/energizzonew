@@ -67,9 +67,9 @@ export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12 xl:gap-16">
+        <div className="flex flex-col-reverse md:flex-row md:items-center md:gap-10 lg:gap-12 xl:gap-16">
           {/* Left — Text content */}
-          <div className="flex-1 text-center lg:text-left">
+          <div className="flex-1 text-left">
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -100,7 +100,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-base md:text-xl text-muted-foreground max-w-[680px] mx-auto lg:mx-0 mb-8 md:mb-10 leading-relaxed px-2 lg:px-0"
+              className="text-base md:text-xl text-muted-foreground max-w-[680px] mb-8 md:mb-10 leading-relaxed"
             >
               Energizzo fattura, risponde ai clienti, prevede i problemi, assicura la compliance e vende di più. Tutto con intelligenza artificiale, tutto in automatico.
             </motion.p>
@@ -110,7 +110,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="flex gap-3 md:gap-4 justify-center lg:justify-start flex-wrap mb-10 lg:mb-0"
+              className="flex gap-3 md:gap-4 justify-start flex-wrap mb-0"
             >
               <motion.a
                 href="#cta"
@@ -137,7 +137,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="lg:w-[420px] xl:w-[480px] shrink-0"
+            className="w-full md:w-[380px] lg:w-[420px] xl:w-[480px] shrink-0 mb-8 md:mb-0"
           >
             <div className="grid grid-cols-2 gap-3 md:gap-4">
               {[
