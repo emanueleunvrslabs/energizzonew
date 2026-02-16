@@ -73,7 +73,9 @@ export const FeaturesSection = () => {
             il tuo business energetico
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            6 funzionalità che nessun competitor possiede. Nato nell'era dell'AI, non adattato dopo.
+            6 funzionalità che nessun competitor possiede.
+            <br />
+            Nato nell'era dell'AI, non adattato dopo.
           </p>
         </motion.div>
 
