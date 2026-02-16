@@ -123,6 +123,15 @@ export const HeroSection = () => {
             </div>
           ))}
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="text-xs text-muted-foreground/50 mt-6 text-center"
+        >
+          Fonte: ARERA — Relazione Annuale 2025
+        </motion.p>
       </div>
     </section>
   );
