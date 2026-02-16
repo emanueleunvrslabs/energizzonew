@@ -100,7 +100,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-base md:text-xl text-muted-foreground max-w-[680px] mx-auto lg:mx-0 mb-8 md:mb-10 leading-relaxed px-2 lg:px-0"
+              className="text-base md:text-xl text-muted-foreground max-w-[680px] mx-auto lg:mx-0 mb-8 md:mb-10 leading-relaxed px-2 lg:px-0 text-balance"
             >
               Energizzo fattura, risponde ai clienti, prevede i problemi, assicura la compliance e vende di più. Tutto con intelligenza artificiale, tutto in automatico.
             </motion.p>
