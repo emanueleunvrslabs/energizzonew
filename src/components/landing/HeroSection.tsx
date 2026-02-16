@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Users, FileSignature, Database, Receipt, List, ShoppingCart, AlertCircle, CreditCard, Bell, FileText, MapPin, Bot, BarChart3, LayoutDashboard, Shield, UserPlus, Link } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 
 const AnimatedNumber = ({ value, decimals = 0, prefix = "", suffix = "" }: { value: number; decimals?: number; prefix?: string; suffix?: string }) => {
@@ -43,6 +43,25 @@ const AnimatedNumber = ({ value, decimals = 0, prefix = "", suffix = "" }: { val
 
   return <span ref={ref}>{prefix}{formatted}{suffix}</span>;
 };
+
+const servicePills = [
+  { icon: Receipt, label: "Fatturazione" },
+  { icon: Users, label: "CRM / API" },
+  { icon: FileSignature, label: "Firma OTP" },
+  { icon: Bot, label: "MAX POWER AI" },
+  { icon: BarChart3, label: "OCR Bollette" },
+  { icon: ShoppingCart, label: "Dispacciamento" },
+  { icon: Database, label: "Cerved" },
+  { icon: Shield, label: "Compliance ARERA" },
+  { icon: CreditCard, label: "SDD / Incassi" },
+  { icon: AlertCircle, label: "Gestione Insoluti" },
+  { icon: Bell, label: "Oneri e Accise" },
+  { icon: FileText, label: "Switch e Volture" },
+  { icon: MapPin, label: "POD / PDR" },
+  { icon: LayoutDashboard, label: "Dashboard" },
+  { icon: UserPlus, label: "Provvigioni" },
+  { icon: List, label: "Listini PUN/PSV" },
+];
 
 export const HeroSection = () => {
   return (
@@ -143,6 +162,27 @@ export const HeroSection = () => {
         >
           Fonte: ARERA — Relazione Annuale 2025
         </motion.p>
+
+        {/* Scrolling service pills */}
+        <div className="mt-8 md:mt-10 overflow-hidden relative">
+          <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+          <motion.div
+            className="flex gap-3 w-max"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ duration: 30, ease: "linear", repeat: Infinity }}
+          >
+            {[...servicePills, ...servicePills].map((pill, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl liquid-glass shrink-0"
+              >
+                <pill.icon className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-foreground whitespace-nowrap">{pill.label}</span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );
