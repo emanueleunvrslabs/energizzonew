@@ -30,7 +30,7 @@ const CellContent = ({ value, isEnergizzo }: { value: CellValue; isEnergizzo?: b
   }
 
   return (
-    <div className="flex items-center justify-center gap-1.5">
+    <div className="flex flex-col items-center gap-0.5">
       <span className="w-5 h-5 flex items-center justify-center flex-shrink-0">
         {value.type === "yes" && (
           <span className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center">
@@ -48,7 +48,7 @@ const CellContent = ({ value, isEnergizzo }: { value: CellValue; isEnergizzo?: b
           </span>
         )}
       </span>
-      {value.label && <span className="text-left">{value.label}</span>}
+      {value.label && <span className="text-xs text-center">{value.label}</span>}
     </div>
   );
 };
