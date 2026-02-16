@@ -62,7 +62,7 @@ const modules: Module[] = [
   },
   {
     icon: Bot, tag: "AI", title: "MAX POWER — Agente AI Orchestratore",
-    desc: "Agente AI orchestratore conversazionale. Analisi dati in linguaggio naturale, generazione report automatici e risposte a query complesse."
+    desc: "AI proprietaria integrata nel core della piattaforma, non una semplice connessione API esterna. Modelli addestrati specificamente per il settore energia: analisi dati in linguaggio naturale, automazione decisionale e generazione report intelligenti."
   },
   {
     icon: BarChart3, tag: "OCR", title: "Preventivatore OCR",
