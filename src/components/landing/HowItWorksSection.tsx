@@ -44,7 +44,9 @@ export const HowItWorksSection = () => {
             Operativo in meno di una settimana
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Nessun progetto IT. Nessuna migrazione complessa. Energizzo si adatta a te.
+            Nessun progetto IT. Nessuna migrazione complessa.
+            <br />
+            Energizzo si adatta a te.
           </p>
         </motion.div>
 
