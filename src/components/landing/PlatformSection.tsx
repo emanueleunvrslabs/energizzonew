@@ -159,18 +159,6 @@ export const PlatformSection = () => {
           </AnimatePresence>
         </div>
 
-        {/* Bottom stat */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-8 md:mt-10 text-center"
-        >
-          <p className="text-sm text-muted-foreground">
-            <span className="text-primary font-bold">16 moduli</span> · 4 categorie · Seleziona un tab per esplorare
-          </p>
-        </motion.div>
       </div>
     </section>
   );
