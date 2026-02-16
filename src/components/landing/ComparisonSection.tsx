@@ -1,18 +1,55 @@
 import { motion } from "framer-motion";
+import { Check, X, AlertTriangle } from "lucide-react";
 
-const rows = [
-  { feature: "AI Customer Care (Chat/WhatsApp)", energizzo: "✅ Nativo", trilance: "❌", ibill: "⚠️ Basic", wattsdat: "❌" },
-  { feature: "Telefono AI (Inbound + Outbound)", energizzo: "✅ Nativo", trilance: "❌", ibill: "❌", wattsdat: "❌" },
-  { feature: "Onboarding OCR da Bolletta", energizzo: "✅ Nativo", trilance: "❌", ibill: "❌", wattsdat: "❌" },
-  { feature: "Simulatore Risparmio AI", energizzo: "✅ Avanzato", trilance: "❌", ibill: "⚠️ Base", wattsdat: "❌" },
-  { feature: "Predizione Churn", energizzo: "✅ AI", trilance: "❌", ibill: "❌", wattsdat: "❌" },
-  { feature: "Predizione Morosità", energizzo: "✅ AI", trilance: "❌", ibill: "❌", wattsdat: "❌" },
-  { feature: "Billing Automatizzato", energizzo: "✅ AI", trilance: "✅ AI base", ibill: "⚠️ Terzi", wattsdat: "✅" },
-  { feature: "CRM Energia", energizzo: "✅ AI-driven", trilance: "✅", ibill: "✅", wattsdat: "✅" },
-  { feature: "Compliance ARERA Auto", energizzo: "✅ AI", trilance: "⚠️ Manuale", ibill: "❌", wattsdat: "⚠️" },
-  { feature: "Integrazione Cerved", energizzo: "✅ Nativo", trilance: "❌", ibill: "❌", wattsdat: "❌" },
-  { feature: "Time-to-Value", energizzo: "< 1 settimana", trilance: "2-6 mesi", ibill: "2-4 settimane", wattsdat: "1-3 mesi" },
+type CellValue = { type: "yes" | "no" | "partial" | "text"; label?: string };
+
+const yes = (label?: string): CellValue => ({ type: "yes", label });
+const no = (): CellValue => ({ type: "no" });
+const partial = (label: string): CellValue => ({ type: "partial", label });
+const text = (label: string): CellValue => ({ type: "text", label });
+
+const rows: { feature: string; energizzo: CellValue; trilance: CellValue; ibill: CellValue; wattsdat: CellValue }[] = [
+  { feature: "AI Customer Care (Chat/WhatsApp)", energizzo: yes("Nativo"), trilance: no(), ibill: partial("Basic"), wattsdat: no() },
+  { feature: "Telefono AI (Inbound + Outbound)", energizzo: yes("Nativo"), trilance: no(), ibill: no(), wattsdat: no() },
+  { feature: "Onboarding OCR da Bolletta", energizzo: yes("Nativo"), trilance: no(), ibill: no(), wattsdat: no() },
+  { feature: "Simulatore Risparmio AI", energizzo: yes("Avanzato"), trilance: no(), ibill: partial("Base"), wattsdat: no() },
+  { feature: "Predizione Churn", energizzo: yes("AI"), trilance: no(), ibill: no(), wattsdat: no() },
+  { feature: "Predizione Morosità", energizzo: yes("AI"), trilance: no(), ibill: no(), wattsdat: no() },
+  { feature: "Billing Automatizzato", energizzo: yes("AI"), trilance: yes("AI base"), ibill: partial("Terzi"), wattsdat: yes() },
+  { feature: "CRM Energia", energizzo: yes("AI-driven"), trilance: yes(), ibill: yes(), wattsdat: yes() },
+  { feature: "Compliance ARERA Auto", energizzo: yes("AI"), trilance: partial("Manuale"), ibill: no(), wattsdat: partial("") },
+  { feature: "Integrazione Cerved", energizzo: yes("Nativo"), trilance: no(), ibill: no(), wattsdat: no() },
+  { feature: "Time-to-Value", energizzo: text("< 1 settimana"), trilance: text("2-6 mesi"), ibill: text("2-4 settimane"), wattsdat: text("1-3 mesi") },
 ];
+
+const CellContent = ({ value, isEnergizzo }: { value: CellValue; isEnergizzo?: boolean }) => {
+  const iconSize = 16;
+
+  if (value.type === "text") {
+    return <span className={isEnergizzo ? "text-primary font-semibold" : ""}>{value.label}</span>;
+  }
+
+  return (
+    <span className="inline-flex items-center justify-center gap-1.5">
+      {value.type === "yes" && (
+        <span className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+          <Check className="text-emerald-400" size={iconSize} strokeWidth={3} />
+        </span>
+      )}
+      {value.type === "no" && (
+        <span className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+          <X className="text-red-400" size={iconSize} strokeWidth={3} />
+        </span>
+      )}
+      {value.type === "partial" && (
+        <span className="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+          <AlertTriangle className="text-amber-400" size={iconSize - 2} strokeWidth={2.5} />
+        </span>
+      )}
+      {value.label && <span>{value.label}</span>}
+    </span>
+  );
+};
 
 export const ComparisonSection = () => {
   return (
@@ -80,16 +117,16 @@ export const ComparisonSection = () => {
                       {row.feature}
                     </td>
                     <td className="text-center p-4 text-sm font-semibold text-primary bg-primary/[0.03] border-b border-white/[0.06]">
-                      {row.energizzo}
+                      <CellContent value={row.energizzo} isEnergizzo />
                     </td>
                     <td className="text-center p-4 text-sm text-muted-foreground border-b border-white/[0.06]">
-                      {row.trilance}
+                      <CellContent value={row.trilance} />
                     </td>
                     <td className="text-center p-4 text-sm text-muted-foreground border-b border-white/[0.06]">
-                      {row.ibill}
+                      <CellContent value={row.ibill} />
                     </td>
                     <td className="text-center p-4 text-sm text-muted-foreground border-b border-white/[0.06]">
-                      {row.wattsdat}
+                      <CellContent value={row.wattsdat} />
                     </td>
                   </tr>
                 ))}
