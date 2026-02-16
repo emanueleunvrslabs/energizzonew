@@ -22,15 +22,15 @@ const rows: { feature: string; energizzo: CellValue; trilance: CellValue; ibill:
   { feature: "Time-to-Value", energizzo: text("< 1 settimana"), trilance: text("2-6 mesi"), ibill: text("2-4 settimane"), wattsdat: text("1-3 mesi") },
 ];
 
-const CellContent = ({ value, isEnergizzo }: { value: CellValue; isEnergizzo?: boolean }) => {
+const CellContent = ({ value, isEnergizzo, iconOnly }: { value: CellValue; isEnergizzo?: boolean; iconOnly?: boolean }) => {
   const iconSize = 16;
 
   if (value.type === "text") {
-    return <span className={`block text-center ${isEnergizzo ? "text-primary font-semibold" : ""}`}>{value.label}</span>;
+    return <span className={`block text-center text-xs md:text-sm ${isEnergizzo ? "text-primary font-semibold" : ""}`}>{value.label}</span>;
   }
 
   const icon = (
-    <span className="w-5 h-5 flex items-center justify-center flex-shrink-0">
+    <span className="w-5 h-5 flex items-center justify-center flex-shrink-0 mx-auto">
       {value.type === "yes" && (
         <span className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center">
           <Check className="text-emerald-400" size={iconSize} strokeWidth={3} />
@@ -48,6 +48,10 @@ const CellContent = ({ value, isEnergizzo }: { value: CellValue; isEnergizzo?: b
       )}
     </span>
   );
+
+  if (iconOnly) {
+    return <div className="flex justify-center">{icon}</div>;
+  }
 
   return (
     <div className="w-full grid items-center" style={{ gridTemplateColumns: '1fr 20px 1fr' }}>
@@ -87,55 +91,64 @@ export const ComparisonSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="max-w-5xl mx-auto overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0"
+          className="max-w-5xl mx-auto overflow-x-auto -mx-4 px-4 md:mx-auto md:px-0"
         >
           <div className="liquid-glass-card overflow-hidden">
-            <table className="w-full border-collapse table-fixed">
+            <table className="w-full border-collapse md:table-fixed">
               <colgroup>
-                <col className="w-[30%]" />
-                <col className="w-[17.5%]" />
-                <col className="w-[17.5%]" />
-                <col className="w-[17.5%]" />
-                <col className="w-[17.5%]" />
+                <col className="w-[40%] md:w-[30%]" />
+                <col className="w-[15%] md:w-[17.5%]" />
+                <col className="w-[15%] md:w-[17.5%]" />
+                <col className="w-[15%] md:w-[17.5%]" />
+                <col className="w-[15%] md:w-[17.5%]" />
               </colgroup>
               <thead>
                 <tr>
-                  <th className="text-left p-4 text-sm font-semibold text-muted-foreground border-b border-white/[0.08]">
-                    Funzionalità
+                  <th className="text-left p-2 md:p-4 text-xs md:text-sm font-semibold text-muted-foreground border-b border-white/[0.08]">
+                    <span className="hidden md:inline">Funzionalità</span>
+                    <span className="md:hidden">Feature</span>
                   </th>
-                  <th className="text-center p-4 text-sm font-bold text-primary border-b border-white/[0.08]"
+                  <th className="text-center p-2 md:p-4 text-xs md:text-sm font-bold text-primary border-b border-white/[0.08]"
                     style={{ background: 'hsl(158 64% 42% / 0.06)' }}>
-                    Energizzo
+                    <span className="hidden md:inline">Energizzo</span>
+                    <span className="md:hidden text-[10px]">Enrg.</span>
                   </th>
-                  <th className="text-center p-4 text-sm font-semibold text-muted-foreground border-b border-white/[0.08]">
-                    Trilance
+                  <th className="text-center p-2 md:p-4 text-xs md:text-sm font-semibold text-muted-foreground border-b border-white/[0.08]">
+                    <span className="hidden md:inline">Trilance</span>
+                    <span className="md:hidden text-[10px]">Tril.</span>
                   </th>
-                  <th className="text-center p-4 text-sm font-semibold text-muted-foreground border-b border-white/[0.08]">
-                    iBill
+                  <th className="text-center p-2 md:p-4 text-xs md:text-sm font-semibold text-muted-foreground border-b border-white/[0.08]">
+                    <span className="hidden md:inline">iBill</span>
+                    <span className="md:hidden text-[10px]">iBill</span>
                   </th>
-                  <th className="text-center p-4 text-sm font-semibold text-muted-foreground border-b border-white/[0.08]">
-                    Wattsdat
+                  <th className="text-center p-2 md:p-4 text-xs md:text-sm font-semibold text-muted-foreground border-b border-white/[0.08]">
+                    <span className="hidden md:inline">Wattsdat</span>
+                    <span className="md:hidden text-[10px]">Wtsd.</span>
                   </th>
                 </tr>
               </thead>
               <tbody>
                 {rows.map((row, i) => (
                   <tr key={i} className="transition-colors hover:bg-white/[0.03]">
-                    <td className="text-left p-4 text-sm font-medium text-foreground border-b border-white/[0.05]">
+                    <td className="text-left p-2 md:p-4 text-xs md:text-sm font-medium text-foreground border-b border-white/[0.05]">
                       {row.feature}
                     </td>
-                    <td className="p-4 text-sm font-semibold text-primary border-b border-white/[0.05]"
+                    <td className="p-2 md:p-4 text-sm font-semibold text-primary border-b border-white/[0.05]"
                       style={{ background: 'hsl(158 64% 42% / 0.03)' }}>
-                      <CellContent value={row.energizzo} isEnergizzo />
+                      <span className="hidden md:block"><CellContent value={row.energizzo} isEnergizzo /></span>
+                      <span className="md:hidden"><CellContent value={row.energizzo} isEnergizzo iconOnly /></span>
                     </td>
-                    <td className="p-4 text-sm text-muted-foreground border-b border-white/[0.05]">
-                      <CellContent value={row.trilance} />
+                    <td className="p-2 md:p-4 text-sm text-muted-foreground border-b border-white/[0.05]">
+                      <span className="hidden md:block"><CellContent value={row.trilance} /></span>
+                      <span className="md:hidden"><CellContent value={row.trilance} iconOnly /></span>
                     </td>
-                    <td className="p-4 text-sm text-muted-foreground border-b border-white/[0.05]">
-                      <CellContent value={row.ibill} />
+                    <td className="p-2 md:p-4 text-sm text-muted-foreground border-b border-white/[0.05]">
+                      <span className="hidden md:block"><CellContent value={row.ibill} /></span>
+                      <span className="md:hidden"><CellContent value={row.ibill} iconOnly /></span>
                     </td>
-                    <td className="p-4 text-sm text-muted-foreground border-b border-white/[0.05]">
-                      <CellContent value={row.wattsdat} />
+                    <td className="p-2 md:p-4 text-sm text-muted-foreground border-b border-white/[0.05]">
+                      <span className="hidden md:block"><CellContent value={row.wattsdat} /></span>
+                      <span className="md:hidden"><CellContent value={row.wattsdat} iconOnly /></span>
                     </td>
                   </tr>
                 ))}
