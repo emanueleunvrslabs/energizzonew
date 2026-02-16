@@ -66,105 +66,104 @@ const servicePills = [
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24">
-      <div className="container mx-auto px-4 relative z-10 text-center">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 md:px-5 md:py-2 rounded-full liquid-glass border-primary/30 mb-6 md:mb-8"
-        >
-          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          <span className="text-xs md:text-sm font-medium text-primary tracking-wide">
-            Piattaforma AI-Native per il Mercato Energia
-          </span>
-        </motion.div>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12 xl:gap-16">
+          {/* Left — Text content */}
+          <div className="flex-1 text-center lg:text-left">
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 md:px-5 md:py-2 rounded-full liquid-glass border-primary/30 mb-6 md:mb-8"
+            >
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-xs md:text-sm font-medium text-primary tracking-wide">
+                Piattaforma AI-Native per il Mercato Energia
+              </span>
+            </motion.div>
 
-        {/* Hero badge - liquid glass */}
+            {/* Title */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="text-3xl md:text-6xl lg:text-7xl font-black text-foreground leading-[1.1] tracking-tight mb-5 md:mb-7"
+            >
+              Il team che ti manca.
+              <br />
+              <span className="gradient-text">Senza assumere nessuno.</span>
+            </motion.h1>
 
-        {/* Title */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-3xl md:text-6xl lg:text-7xl font-black text-foreground leading-[1.1] tracking-tight mb-5 md:mb-7"
-        >
-          Il team che ti manca.
-          <br />
-          <span className="gradient-text">Senza assumere nessuno.</span>
-        </motion.h1>
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-base md:text-xl text-muted-foreground max-w-[680px] mx-auto lg:mx-0 mb-8 md:mb-10 leading-relaxed px-2 lg:px-0"
+            >
+              Energizzo fattura, risponde ai clienti, prevede i problemi, assicura la compliance e vende di più. Tutto con intelligenza artificiale, tutto in automatico.
+            </motion.p>
 
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-base md:text-xl text-muted-foreground max-w-[680px] mx-auto mb-8 md:mb-12 leading-relaxed px-2"
-        >
-          Energizzo fattura, risponde ai clienti, prevede i problemi, assicura la compliance e vende di più. Tutto con intelligenza artificiale, tutto in automatico.
-        </motion.p>
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="flex gap-3 md:gap-4 justify-center lg:justify-start flex-wrap mb-10 lg:mb-0"
+            >
+              <motion.a
+                href="#cta"
+                className="btn-premium inline-flex items-center gap-2 text-sm md:text-base px-6 py-3 md:px-8 md:py-4"
+                whileHover={{ scale: 1.05, y: -3 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Richiedi una Demo
+                <ArrowRight className="w-5 h-5" />
+              </motion.a>
+              <motion.a
+                href="#features"
+                className="hidden md:inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-base text-foreground liquid-glass transition-all duration-300"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Scopri le Funzionalità
+              </motion.a>
+            </motion.div>
+          </div>
 
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex gap-3 md:gap-4 justify-center flex-wrap mb-12 md:mb-20"
-        >
-          <motion.a
-            href="#cta"
-            className="btn-premium inline-flex items-center gap-2 text-sm md:text-base px-6 py-3 md:px-8 md:py-4"
-            whileHover={{ scale: 1.05, y: -3 }}
-            whileTap={{ scale: 0.98 }}
+          {/* Right — Stats cards */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="lg:w-[420px] xl:w-[480px] shrink-0"
           >
-            Richiedi una Demo
-            <ArrowRight className="w-5 h-5" />
-          </motion.a>
-          <motion.a
-            href="#features"
-            className="hidden md:inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-base text-foreground liquid-glass transition-all duration-300"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Scopri le Funzionalità
-          </motion.a>
-        </motion.div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5 max-w-5xl mx-auto"
-        >
-          {[
-            { value: <AnimatedNumber value={741} />, label: "Venditori attivi in Italia nel 2024. Erano 806 nel 2022.", color: "text-primary" },
-            { value: <AnimatedNumber value={23.8} decimals={1} suffix="%" />, label: "Tasso di switching 2024. 1 cliente su 4 ha cambiato fornitore.", color: "text-amber-400" },
-            { value: <AnimatedNumber value={30.5} decimals={1} suffix="M" />, label: "Punti di prelievo domestici nel mercato italiano.", color: "text-emerald-400" },
-            { value: <AnimatedNumber value={108.5} decimals={1} />, label: "€/MWh il PUN medio 2024. Francia: 58. Spagna: 63.", color: "text-blue-400" },
-          ].map((stat, i) => (
-            <div key={i} className="liquid-glass-card-sm p-4 md:p-8 text-center">
-              <div className={`text-2xl md:text-4xl font-black tracking-tight mb-2 md:mb-3 ${stat.color}`}>
-                {stat.value}
-              </div>
-              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
-                {stat.label}
-              </p>
+            <div className="grid grid-cols-2 gap-3 md:gap-4">
+              {[
+                { value: <AnimatedNumber value={741} />, label: "Venditori attivi in Italia nel 2024. Erano 806 nel 2022.", color: "text-primary" },
+                { value: <AnimatedNumber value={23.8} decimals={1} suffix="%" />, label: "Tasso di switching 2024. 1 cliente su 4 ha cambiato fornitore.", color: "text-amber-400" },
+                { value: <AnimatedNumber value={30.5} decimals={1} suffix="M" />, label: "Punti di prelievo domestici nel mercato italiano.", color: "text-emerald-400" },
+                { value: <AnimatedNumber value={108.5} decimals={1} />, label: "€/MWh il PUN medio 2024. Francia: 58. Spagna: 63.", color: "text-blue-400" },
+              ].map((stat, i) => (
+                <div key={i} className="liquid-glass-card-sm p-4 md:p-6 text-center">
+                  <div className={`text-2xl md:text-3xl font-black tracking-tight mb-2 ${stat.color}`}>
+                    {stat.value}
+                  </div>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
-        </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-xs text-muted-foreground/50 mt-6 text-center"
-        >
-          Fonte: ARERA — Relazione Annuale 2025
-        </motion.p>
+            <p className="text-xs text-muted-foreground/50 mt-4 text-center">
+              Fonte: ARERA — Relazione Annuale 2025
+            </p>
+          </motion.div>
+        </div>
 
         {/* Scrolling service pills */}
-        <div className="mt-8 md:mt-10 overflow-hidden relative">
+        <div className="mt-10 md:mt-14 overflow-hidden relative">
           <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
           <motion.div
