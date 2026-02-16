@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 
-const AnimatedNumber = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
+const AnimatedNumber = ({ value, decimals = 0, prefix = "", suffix = "" }: { value: number; decimals?: number; prefix?: string; suffix?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -12,25 +12,36 @@ const AnimatedNumber = ({ value, suffix = "" }: { value: number; suffix?: string
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated) {
           setHasAnimated(true);
-          let start = 0;
-          const end = value;
+          const duration = 2000;
+          const steps = 60;
+          const increment = value / steps;
+          let current = 0;
+          let step = 0;
           const timer = setInterval(() => {
-            start += Math.ceil(value / 50);
-            if (start >= end) {
-              start = end;
+            step++;
+            // Easing: decelerate
+            const progress = step / steps;
+            const eased = 1 - Math.pow(1 - progress, 3);
+            current = value * eased;
+            if (step >= steps) {
+              current = value;
               clearInterval(timer);
             }
-            setDisplayValue(start);
-          }, 40);
+            setDisplayValue(current);
+          }, duration / steps);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, [value, hasAnimated]);
 
-  return <span ref={ref}>{displayValue.toLocaleString('it-IT')}{suffix}</span>;
+  const formatted = decimals > 0
+    ? displayValue.toFixed(decimals).replace('.', ',')
+    : Math.round(displayValue).toLocaleString('it-IT');
+
+  return <span ref={ref}>{prefix}{formatted}{suffix}</span>;
 };
 
 export const HeroSection = () => {
@@ -109,9 +120,9 @@ export const HeroSection = () => {
         >
           {[
             { value: <AnimatedNumber value={741} />, label: "Venditori attivi in Italia nel 2024. Erano 806 nel 2022.", color: "text-primary" },
-            { value: "23,8%", label: "Tasso di switching 2024. 1 cliente su 4 ha cambiato fornitore.", color: "text-amber-400" },
-            { value: "30,5M", label: "Punti di prelievo domestici nel mercato italiano.", color: "text-emerald-400" },
-            { value: "108,5", label: "€/MWh il PUN medio 2024. Francia: 58. Spagna: 63.", color: "text-blue-400" },
+            { value: <AnimatedNumber value={23.8} decimals={1} suffix="%" />, label: "Tasso di switching 2024. 1 cliente su 4 ha cambiato fornitore.", color: "text-amber-400" },
+            { value: <AnimatedNumber value={30.5} decimals={1} suffix="M" />, label: "Punti di prelievo domestici nel mercato italiano.", color: "text-emerald-400" },
+            { value: <AnimatedNumber value={108.5} decimals={1} />, label: "€/MWh il PUN medio 2024. Francia: 58. Spagna: 63.", color: "text-blue-400" },
           ].map((stat, i) => (
             <div key={i} className="liquid-glass-card-sm p-4 md:p-8 text-center">
               <div className={`text-2xl md:text-4xl font-black tracking-tight mb-2 md:mb-3 ${stat.color}`}>
