@@ -91,16 +91,16 @@ export const ComparisonSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="max-w-5xl mx-auto overflow-x-auto -mx-4 px-4 md:mx-auto md:px-0"
+          className="max-w-5xl mx-auto"
         >
           <div className="liquid-glass-card overflow-hidden">
-            <table className="w-full border-collapse md:table-fixed">
+            <table className="w-full border-collapse table-fixed">
               <colgroup>
-                <col className="w-[40%] md:w-[30%]" />
-                <col className="w-[15%] md:w-[17.5%]" />
-                <col className="w-[15%] md:w-[17.5%]" />
-                <col className="w-[15%] md:w-[17.5%]" />
-                <col className="w-[15%] md:w-[17.5%]" />
+                <col className="w-[32%] md:w-[30%]" />
+                <col className="w-[17%] md:w-[17.5%]" />
+                <col className="w-[17%] md:w-[17.5%]" />
+                <col className="w-[17%] md:w-[17.5%]" />
+                <col className="w-[17%] md:w-[17.5%]" />
               </colgroup>
               <thead>
                 <tr>
