@@ -126,7 +126,7 @@ export const AppWhiteLabelSection = () => {
             {features.slice(3).map((f, i) => (
               <motion.div
                 key={i}
-                className="liquid-glass-card-sm p-5 flex flex-col gap-3 min-w-[220px] sm:min-w-[240px] lg:min-w-0 snap-start shrink-0 lg:shrink"
+                className="liquid-glass-card-sm p-4 flex flex-col gap-2.5 w-[160px] min-w-[160px] sm:w-[180px] sm:min-w-[180px] lg:w-auto lg:min-w-0 snap-start shrink-0 lg:shrink"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
