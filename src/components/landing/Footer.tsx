@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Instagram, Linkedin } from "lucide-react";
 import { useState } from "react";
 import { DemoFormModal } from "./DemoFormModal";
 
@@ -56,11 +56,19 @@ export const Footer = () => {
       <footer className="relative py-8 md:py-12 z-10">
         <div className="container mx-auto px-4">
           <div className="liquid-glass-card-sm p-5 md:p-8 text-center">
-            <p className="text-sm text-muted-foreground mb-2">
+            <p className="text-sm text-muted-foreground mb-3">
               <span className="font-bold gradient-text">energizzo</span>
               <span className="mx-3 text-white/10">|</span>
               by <a href="#" className="text-primary hover:underline">UNVRS Labs</a>
             </p>
+            <div className="flex justify-center gap-4 mb-3">
+              <a href="https://www.instagram.com/energizzo.it?igsh=MWduN3hrdDEzZTUwbQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="https://www.linkedin.com/company/111630917/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
             <p className="text-xs text-muted-foreground">
               © {new Date().getFullYear()} UNVRS Labs S.r.l. — Tutti i diritti riservati
             </p>
