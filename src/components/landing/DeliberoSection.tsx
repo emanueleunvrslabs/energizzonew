@@ -45,7 +45,7 @@ export const DeliberoSection = () => {
               </motion.p>
 
               <motion.a
-                href="https://delibero.lovable.app/"
+                href="https://delibero.energizzo.it"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
