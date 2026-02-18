@@ -7,7 +7,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 
 interface DemoFormModalProps {
   open: boolean;
@@ -32,18 +31,23 @@ const DemoFormContent = ({ onClose }: { onClose: () => void }) => {
     }
     setLoading(true);
     try {
-      const { data, error } = await supabase.functions.invoke('telegram', {
-        body: { name, company, email, whatsapp },
+      const BOT_TOKEN = "8504985644:AAFP0rdji6OkYINJC3JAEkYbzBTtHogc4z4";
+      const CHAT_ID = "8318015596";
+      const text = `🔔 Nuova Richiesta Demo\n\n👤 Nome: ${name}\n🏢 Azienda: ${company}\n📧 Email: ${email}\n📱 WhatsApp: ${whatsapp}`;
+      
+      const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: "HTML" }),
       });
-      console.log('Telegram response:', { data, error });
-      if (error) {
-        console.error('Telegram error details:', error);
-        throw error;
-      }
+      
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.description || "Errore Telegram");
+      
       setSubmitted(true);
     } catch (err) {
-      console.error('Full error:', err);
-      const errorMsg = err instanceof Error ? err.message : JSON.stringify(err);
+      console.error('Telegram error:', err);
+      const errorMsg = err instanceof Error ? err.message : "Errore sconosciuto";
       toast({ title: `Errore: ${errorMsg}`, variant: "destructive" });
     } finally {
       setLoading(false);
