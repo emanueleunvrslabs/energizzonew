@@ -58,7 +58,7 @@ const features = [
 
 export const AppWhiteLabelSection = () => {
   return (
-    <section className="relative py-20 md:py-32 overflow-hidden">
+    <section className="relative py-20 md:py-32 overflow-hidden" aria-label="App white label energia per iOS e Android">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
