@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Scale, Bot, Bell, Zap, TrendingDown, Activity, ChevronLeft, ChevronRight, Calculator, BarChart3, Settings2 } from "lucide-react";
+import { ArrowRight, Scale, Bot, Bell, Zap, TrendingDown, Activity, ChevronLeft, ChevronRight, Calculator, BarChart3, Settings2, FileSignature, ShieldCheck, Users, Code } from "lucide-react";
 
 const slides = [
   {
@@ -90,6 +90,36 @@ const slides = [
         icon: Settings2,
         title: "Futures e previsioni",
         desc: "Previsioni trimestrali sui prezzi energetici per anticipare i trend e ottimizzare la strategia commerciale.",
+      },
+    ],
+  },
+  {
+    badge: { icon: FileSignature, label: "OTP by Energizzo" },
+    title: (
+      <>
+        Firma elettronica,
+        <br />
+        <span className="gradient-text">senza abbonamento.</span>
+      </>
+    ),
+    description:
+      "Fai firmare contratti energia e gas con Firma Elettronica Semplice (FES) e verifica OTP. Paghi solo a consumo, senza abbonamenti né vincoli — con utenti illimitati e API gratuite per integrare il tuo gestionale.",
+    cta: { label: "Scopri OTP", href: "https://otp.energizzo.it" },
+    features: [
+      {
+        icon: ShieldCheck,
+        title: "FES con valore legale",
+        desc: "Firma Elettronica Semplice con verifica OTP via SMS, perfetta per contratti luce e gas con pieno valore legale.",
+      },
+      {
+        icon: Users,
+        title: "Utenti illimitati",
+        desc: "Nessun costo per utenze aggiuntive. Credito centralizzato e condiviso tra tutti gli operatori della tua azienda.",
+      },
+      {
+        icon: Code,
+        title: "API gratuite",
+        desc: "Integra la firma elettronica nel tuo gestionale tramite API REST gratuite, senza costi aggiuntivi.",
       },
     ],
   },
