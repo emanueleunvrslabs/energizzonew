@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 import { motion } from "framer-motion";
 import { X, Send } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -44,6 +45,15 @@ const DemoFormContent = ({ onClose }: { onClose: () => void }) => {
       const data = await res.json();
       if (!res.ok) throw new Error(data.description || "Errore Telegram");
       
+      // Send WhatsApp confirmation via WaSender (non-blocking)
+      try {
+        await supabase.functions.invoke('wasender', {
+          body: { to: whatsapp, name },
+        });
+      } catch (waErr) {
+        console.warn('WhatsApp confirmation failed (non-blocking):', waErr);
+      }
+
       setSubmitted(true);
     } catch (err) {
       console.error('Telegram error:', err);
