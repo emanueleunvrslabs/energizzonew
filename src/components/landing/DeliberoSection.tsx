@@ -192,28 +192,30 @@ export const DeliberoSection = () => {
                   {slide.title}
                 </h2>
 
-                <p className="text-base md:text-lg text-muted-foreground max-w-[540px] leading-relaxed mb-4 text-balance">
+                <p className="text-base md:text-lg text-muted-foreground max-w-[540px] leading-relaxed mb-8 text-balance">
                   {slide.description}
                 </p>
 
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 mb-8">
+                <div className="flex flex-wrap items-center gap-4">
+                  <motion.a
+                    href={slide.cta.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-premium inline-flex items-center gap-2 text-sm md:text-base px-6 py-3 md:px-8 md:py-4"
+                    whileHover={{ scale: 1.05, y: -3 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    {slide.cta.label}
+                    <ArrowRight className="w-5 h-5" />
+                  </motion.a>
+                </div>
+
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 mt-4">
                   <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
                   <span className="text-xs md:text-sm font-medium text-primary">
                     Incluso nativamente nel software Energizzo
                   </span>
                 </div>
-
-                <motion.a
-                  href={slide.cta.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-premium inline-flex items-center gap-2 text-sm md:text-base px-6 py-3 md:px-8 md:py-4"
-                  whileHover={{ scale: 1.05, y: -3 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  {slide.cta.label}
-                  <ArrowRight className="w-5 h-5" />
-                </motion.a>
               </div>
 
               {/* Right — Feature pills */}
