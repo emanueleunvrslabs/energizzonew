@@ -69,7 +69,7 @@ export const HeroSection = () => {
   return (
     <>
     <DemoFormModal open={demoOpen} onOpenChange={setDemoOpen} />
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24" aria-label="Energizzo - Piattaforma AI per reseller energia">
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12 xl:gap-16">
           {/* Left — Text content */}

@@ -1,0 +1,42 @@
+# Energizzo — Piattaforma AI per Reseller di Energia
+
+> Energizzo è la piattaforma AI-native per i reseller di energia elettrica e gas in Italia. Automatizza l'intero ciclo operativo: dall'onboarding del cliente alla fatturazione, dalla compliance ARERA alla gestione del churn.
+
+## Cosa fa Energizzo
+
+Energizzo sostituisce team interi con intelligenza artificiale. Un reseller può gestire migliaia di clienti senza aumentare il personale.
+
+### Funzionalità principali
+
+- **Fatturazione AI Automatica**: Calcolo automatico di tutte le componenti ARERA (trasporto, oneri di sistema, accise, IVA). Emissione bollette, gestione incassi SDD e scadenze. Zero intervento manuale.
+- **Onboarding OCR in 60 secondi**: Il cliente fotografa la bolletta del vecchio fornitore. L'AI estrae dati anagrafici, POD/PDR, consumi, calcola il risparmio e prepara il contratto per la firma digitale OTP.
+- **CRM Clienti Intelligente**: Gestione completa del ciclo di vita del cliente con suggerimenti AI proattivi per upselling e retention.
+- **Telefono AI Inbound & Outbound**: Risposta automatica 24/7 a chiamate clienti (autoletture, bollette, pagamenti) e chiamate outbound per solleciti e campagne commerciali.
+- **Predizione Churn & Morosità**: Monitoraggio in tempo reale di ogni cliente. Identifica chi sta per andarsene 30 giorni prima e attiva azioni di retention automatiche.
+- **Compliance ARERA Automatica**: Implementazione automatica di ogni nuova delibera. Template, schede sintetiche e reportistiche sempre aggiornati.
+- **App White Label iOS & Android**: App personalizzabile con il brand del reseller. Include onboarding smart, firma OTP, consultazione bollette, autolettura e chatbot AI 24/7.
+
+## Pricing
+
+- **Starter**: €490/mese — Fino a 500 clienti, fatturazione AI, CRM base, app white label
+- **Growth**: €890/mese — Fino a 2.000 clienti, telefono AI, predizione churn, dispacciamento
+- **Enterprise**: Su misura — Clienti illimitati, SLA dedicato, API custom, account manager
+
+## Target
+
+- Reseller di energia elettrica e gas in Italia
+- Aziende energetiche che vogliono scalare senza aumentare i costi operativi
+- Nuovi operatori che entrano nel mercato libero dell'energia
+
+## Mercato
+
+Il mercato energia italiano conta 741 venditori attivi (2024, fonte ARERA), con un tasso di switching del 23.8% e 30.5 milioni di punti di prelievo domestici. Il PUN medio 2024 è stato di €108.5/MWh.
+
+## Azienda
+
+Energizzo è un prodotto di UNVRS Labs S.r.l., società italiana specializzata in soluzioni AI per il settore energia.
+
+## Contatti
+
+- Sito web: https://energizzonew.lovable.app
+- Demo: Disponibile su richiesta tramite il sito

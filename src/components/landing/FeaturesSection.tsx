@@ -54,7 +54,7 @@ const features = [
 
 export const FeaturesSection = () => {
   return (
-    <section id="features" className="py-16 md:py-32 relative overflow-hidden">
+    <section id="features" className="py-16 md:py-32 relative overflow-hidden" aria-label="Funzionalità principali di Energizzo">
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <motion.div

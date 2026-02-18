@@ -7,6 +7,7 @@ import { DeliberoSection } from "@/components/landing/DeliberoSection";
 import { PricingSection } from "@/components/landing/PricingSection";
 import { ComparisonSection } from "@/components/landing/ComparisonSection";
 import { AppWhiteLabelSection } from "@/components/landing/AppWhiteLabelSection";
+import { FAQSection } from "@/components/landing/FAQSection";
 import { Footer } from "@/components/landing/Footer";
 
 const Index = () => {
@@ -28,6 +29,7 @@ const Index = () => {
           <PricingSection />
           <AppWhiteLabelSection />
           <ComparisonSection />
+          <FAQSection />
         </main>
         
         <Footer />
