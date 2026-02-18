@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Scale, Bot, Bell, Zap, TrendingDown, Activity, ChevronLeft, ChevronRight, Calculator, BarChart3, Settings2, FileSignature, ShieldCheck, Users, Code } from "lucide-react";
+import { ArrowRight, Scale, Bot, Bell, Zap, TrendingDown, Activity, ChevronLeft, ChevronRight, Calculator, BarChart3, Settings2, FileSignature, ShieldCheck, Users, Code, CheckCircle2 } from "lucide-react";
 
 const slides = [
   {
@@ -192,9 +192,16 @@ export const DeliberoSection = () => {
                   {slide.title}
                 </h2>
 
-                <p className="text-base md:text-lg text-muted-foreground max-w-[540px] leading-relaxed mb-8 text-balance">
+                <p className="text-base md:text-lg text-muted-foreground max-w-[540px] leading-relaxed mb-4 text-balance">
                   {slide.description}
                 </p>
+
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 mb-8">
+                  <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
+                  <span className="text-xs md:text-sm font-medium text-primary">
+                    Incluso nativamente nel software Energizzo
+                  </span>
+                </div>
 
                 <motion.a
                   href={slide.cta.href}
