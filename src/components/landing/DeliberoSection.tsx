@@ -64,7 +64,7 @@ const slides = [
     ],
   },
   {
-    badge: { icon: BarChart3, label: "RE.M.O. by Energizzo" },
+    badge: { icon: BarChart3, label: "Pricing Engine by Energizzo" },
     title: (
       <>
         Il mercato energia,
@@ -73,7 +73,7 @@ const slides = [
       </>
     ),
     description:
-      "RE.M.O. (Retail Energy Market Outlook) ti offre report mensili completi su prezzi all'ingrosso, indici PUN, PSV, TTF, componenti ARERA, futures e oneri di sistema — tutto in un unico strumento per costruire offerte competitive.",
+      "Pricing Engine ti offre report mensili completi su prezzi all'ingrosso, indici PUN, PSV, TTF, componenti ARERA, futures e oneri di sistema — tutto in un unico strumento per costruire offerte competitive.",
     cta: { label: "Scopri Pricing Engine", href: "https://pricingengine.energizzo.it" },
     features: [
       {
