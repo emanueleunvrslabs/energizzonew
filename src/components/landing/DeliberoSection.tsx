@@ -64,32 +64,32 @@ const slides = [
     ],
   },
   {
-    badge: { icon: Calculator, label: "Pricing Engine by Energizzo" },
+    badge: { icon: BarChart3, label: "RE.M.O. by Energizzo" },
     title: (
       <>
-        Il pricing,
+        Il mercato energia,
         <br />
-        <span className="gradient-text">automatizzato.</span>
+        <span className="gradient-text">sotto controllo.</span>
       </>
     ),
     description:
-      "Genera offerte energia personalizzate in pochi secondi. Il motore di pricing calcola automaticamente i costi basandosi su tariffe aggiornate, margini configurabili e profili di consumo reali.",
+      "RE.M.O. (Retail Energy Market Outlook) ti offre report mensili completi su prezzi all'ingrosso, indici PUN, PSV, TTF, componenti ARERA, futures e oneri di sistema — tutto in un unico strumento per costruire offerte competitive.",
     cta: { label: "Scopri Pricing Engine", href: "https://pricingengine.energizzo.it" },
     features: [
       {
-        icon: Calculator,
-        title: "Calcolo automatico",
-        desc: "Offerte generate in tempo reale con tariffe aggiornate e margini configurabili per ogni segmento cliente.",
+        icon: BarChart3,
+        title: "PUN, PSV, TTF aggiornati",
+        desc: "Andamento mensile dei principali indici di mercato luce e gas con variazioni congiunturali e tendenziali.",
       },
       {
-        icon: BarChart3,
-        title: "Analisi margini",
-        desc: "Visualizza e ottimizza i margini su ogni offerta con dashboard dedicate e report dettagliati.",
+        icon: Calculator,
+        title: "Componenti ARERA integrate",
+        desc: "Oneri di sistema, trasporto, dispacciamento e tutte le voci tariffarie aggiornate per costruire offerte precise.",
       },
       {
         icon: Settings2,
-        title: "Configurazione flessibile",
-        desc: "Personalizza componenti tariffarie, spread e parametri per creare offerte su misura per ogni cliente.",
+        title: "Futures e previsioni",
+        desc: "Previsioni trimestrali sui prezzi energetici per anticipare i trend e ottimizzare la strategia commerciale.",
       },
     ],
   },
