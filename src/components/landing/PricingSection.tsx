@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, Sparkles } from "lucide-react";
+import { DemoFormModal } from "./DemoFormModal";
 
 const plans = [
   {
@@ -55,7 +57,10 @@ const plans = [
 
 
 export const PricingSection = () => {
+  const [demoOpen, setDemoOpen] = useState(false);
   return (
+    <>
+    <DemoFormModal open={demoOpen} onOpenChange={setDemoOpen} />
     <section id="pricing" className="py-16 md:py-32 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
@@ -144,8 +149,8 @@ export const PricingSection = () => {
                     ))}
                   </ul>
 
-                  <motion.a
-                    href="#cta"
+                  <motion.button
+                    onClick={() => setDemoOpen(true)}
                     className={`w-full py-4 px-6 rounded-[1rem] font-semibold text-center transition-all duration-300 block ${
                       plan.highlighted
                         ? 'bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg shadow-primary/25'
@@ -155,7 +160,7 @@ export const PricingSection = () => {
                     whileTap={{ scale: 0.98 }}
                   >
                     {plan.cta}
-                  </motion.a>
+                  </motion.button>
                 </div>
               </motion.div>
             </motion.div>
@@ -164,5 +169,6 @@ export const PricingSection = () => {
 
       </div>
     </section>
+    </>
   );
 };
