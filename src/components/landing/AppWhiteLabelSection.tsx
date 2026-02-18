@@ -121,12 +121,12 @@ export const AppWhiteLabelSection = () => {
             </div>
           </div>
 
-          {/* Grid features — 5 cards in a clean row layout */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10">
+          {/* Grid features — horizontal scroll on mobile, grid on desktop */}
+          <div className="flex lg:grid lg:grid-cols-5 gap-4 mb-10 overflow-x-auto lg:overflow-visible snap-x snap-mandatory pb-4 lg:pb-0 -mx-2 px-2 lg:mx-0 lg:px-0 scrollbar-hide">
             {features.slice(3).map((f, i) => (
               <motion.div
                 key={i}
-                className="liquid-glass-card-sm p-5 flex flex-col gap-3"
+                className="liquid-glass-card-sm p-5 flex flex-col gap-3 min-w-[220px] sm:min-w-[240px] lg:min-w-0 snap-start shrink-0 lg:shrink"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
