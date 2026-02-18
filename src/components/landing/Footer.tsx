@@ -35,7 +35,7 @@ export const Footer = () => {
                 <p className="text-base md:text-lg text-muted-foreground mb-8 md:mb-10 max-w-[500px] mx-auto leading-relaxed">
                   30 minuti di demo. Nessun impegno. Vediamo insieme quanto puoi risparmiare e come Energizzo lavora con i tuoi dati reali.
                 </p>
-                <div className="flex gap-3 md:gap-4 justify-center flex-wrap">
+                <div className="flex justify-center">
                   <motion.button
                     onClick={() => setDemoOpen(true)}
                     className="btn-premium inline-flex items-center gap-2"
@@ -45,14 +45,6 @@ export const Footer = () => {
                     Prenota una Demo
                     <ArrowRight className="w-5 h-5" />
                   </motion.button>
-                  <motion.a
-                    href="#pricing"
-                    className="inline-flex items-center gap-2 px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold text-sm md:text-base text-foreground liquid-glass"
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    Vedi i Prezzi
-                  </motion.a>
                 </div>
               </div>
             </div>
