@@ -44,7 +44,7 @@ const slides = [
     ),
     description:
       "Ottimizza i costi di dispacciamento riducendo gli oneri in bolletta legati a sbilanciamenti, uplift e corrispettivi di sistema — voci spesso trascurate che incidono sul costo finale dell'energia.",
-    cta: { label: "Scopri di più", href: "https://dispacciamento.lovable.app" },
+    cta: { label: "Scopri di più", href: "https://dispacciamento.energizzo.it" },
     features: [
       {
         icon: TrendingDown,
