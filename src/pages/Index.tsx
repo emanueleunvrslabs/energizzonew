@@ -6,6 +6,7 @@ import { HowItWorksSection } from "@/components/landing/HowItWorksSection";
 import { DeliberoSection } from "@/components/landing/DeliberoSection";
 import { PricingSection } from "@/components/landing/PricingSection";
 import { ComparisonSection } from "@/components/landing/ComparisonSection";
+import { AppWhiteLabelSection } from "@/components/landing/AppWhiteLabelSection";
 import { Footer } from "@/components/landing/Footer";
 
 const Index = () => {
@@ -25,6 +26,7 @@ const Index = () => {
           <HowItWorksSection />
           <DeliberoSection />
           <PricingSection />
+          <AppWhiteLabelSection />
           <ComparisonSection />
         </main>
         
