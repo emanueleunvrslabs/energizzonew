@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { DemoFormModal } from "@/components/landing/DemoFormModal";
 
 const navLinks = [
   { label: "Funzionalità", href: "#features" },
@@ -14,6 +15,7 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("#");
+  const [demoOpen, setDemoOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -88,14 +90,14 @@ export const Navbar = () => {
         
         <div className="w-px h-5 bg-white/15 mx-1" />
         
-        <motion.a
-          href="#cta"
+        <motion.button
+          onClick={() => setDemoOpen(true)}
           className="px-5 py-2 text-sm font-semibold text-primary-foreground bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-300"
           whileHover={{ scale: 1.05, boxShadow: '0 8px 24px hsl(var(--primary) / 0.4)' }}
           whileTap={{ scale: 0.98 }}
         >
           Richiedi Demo
-        </motion.a>
+        </motion.button>
       </motion.div>
 
       {/* Mobile Menu Toggle */}
@@ -146,19 +148,20 @@ export const Navbar = () => {
                 </motion.a>
               ))}
               <div className="h-px bg-white/10 my-2" />
-              <motion.a
-                href="#cta"
+              <motion.button
+                onClick={() => { setDemoOpen(true); setMobileOpen(false); }}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
-                className="px-4 py-3 rounded-xl text-base font-semibold text-center text-primary-foreground bg-gradient-to-r from-primary to-accent"
+                className="px-4 py-3 rounded-xl text-base font-semibold text-center text-primary-foreground bg-gradient-to-r from-primary to-accent w-full"
               >
                 Richiedi Demo
-              </motion.a>
+              </motion.button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+      <DemoFormModal open={demoOpen} onOpenChange={setDemoOpen} />
     </motion.nav>
   );
 };
