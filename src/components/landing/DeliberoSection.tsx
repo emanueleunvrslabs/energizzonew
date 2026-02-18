@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Scale, Bot, Bell, Zap, TrendingDown, Activity, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Scale, Bot, Bell, Zap, TrendingDown, Activity, ChevronLeft, ChevronRight, Calculator, BarChart3, Settings2 } from "lucide-react";
 
 const slides = [
   {
@@ -60,6 +60,36 @@ const slides = [
         icon: Scale,
         title: "ARERA Compliant",
         desc: "Analisi conforme alle normative ARERA per energia elettrica e gestione del dispacciamento.",
+      },
+    ],
+  },
+  {
+    badge: { icon: Calculator, label: "Pricing Engine by Energizzo" },
+    title: (
+      <>
+        Il pricing,
+        <br />
+        <span className="gradient-text">automatizzato.</span>
+      </>
+    ),
+    description:
+      "Genera offerte energia personalizzate in pochi secondi. Il motore di pricing calcola automaticamente i costi basandosi su tariffe aggiornate, margini configurabili e profili di consumo reali.",
+    cta: { label: "Scopri Pricing Engine", href: "https://pricingengine.energizzo.it" },
+    features: [
+      {
+        icon: Calculator,
+        title: "Calcolo automatico",
+        desc: "Offerte generate in tempo reale con tariffe aggiornate e margini configurabili per ogni segmento cliente.",
+      },
+      {
+        icon: BarChart3,
+        title: "Analisi margini",
+        desc: "Visualizza e ottimizza i margini su ogni offerta con dashboard dedicate e report dettagliati.",
+      },
+      {
+        icon: Settings2,
+        title: "Configurazione flessibile",
+        desc: "Personalizza componenti tariffarie, spread e parametri per creare offerte su misura per ogni cliente.",
       },
     ],
   },
